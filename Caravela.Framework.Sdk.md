@@ -26,6 +26,6 @@ Available examples of Caravela.Framework.Sdk weavers are:
 
 * [Caravela.Open.Virtuosity](https://github.com/postsharp/Caravela.Open.Virtuosity): makes all possible methods in a project `virtual`
 * [Caravela.Open.AutoCancellationToken](https://github.com/postsharp/Caravela.Open.AutoCancellationToken): automatically propagates `CancellationToken` parameter
-* [Caravela.Open.Costura](https://github.com/postsharp/Caravela.Open.Costura): bundles .NET Framework applications into a single executable file
+* [Caravela.Open.DependencyEmbedder](https://github.com/postsharp/Caravela.Open.DependencyEmbedder): bundles .NET Framework applications into a single executable file
 
 The Caravela.Open.Virtuosity repository contains very little logic, so it can be used as a template for your own weavers.
