@@ -15,4 +15,4 @@ More detailed information is available about:
 
 * [Caravela.Framework.Sdk](Caravela.Framework.Sdk.md)
 * [Caravela.Framework](Caravela.Framework.md)
-* [Debugging.md](Debugging.md)
+* [Debugging](Debugging.md)
