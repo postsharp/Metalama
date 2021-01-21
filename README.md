@@ -120,6 +120,6 @@ We have already taken the following compromise:
 
  _Caravela.Framework_ is an add-in (the only one) to _Caravela.Compiler_. It contains the code transformation framework.
 
- _Caravela.Framework_ is designed to be compatible to be hostable by Visual Studio and to integrate with design-time source
+ _Caravela.Framework_ is designed to be hostable by Visual Studio and to integrate with design-time source
  generators, although this feature has not yet been implemented.
 
