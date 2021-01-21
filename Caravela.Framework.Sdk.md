@@ -6,6 +6,7 @@
 - [Introduction](#introduction)
 - [Maturity](#maturity)
 - [Implementing an aspect](#implementing-an-aspect)
+- [Packaging your aspect with its weaver](#packaging-your-aspect-with-its-weaver)
 - [Examples](#examples)
 
 
@@ -93,7 +94,7 @@ In a _third_ project:
 TODO
 
 
-### Package your aspect with its weaver
+## Packaging your aspect with its weaver
 
 TODO
 
