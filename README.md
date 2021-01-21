@@ -4,18 +4,17 @@
 
 
 ## Table of contents
-- [PostSharp "Caravela"](#postsharp-caravela)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Licensing](#licensing)
-  - [Examples](#examples)
-  - [We would love your feedback!](#we-would-love-your-feedback)
-  - [Debugging code with Caravela](#debugging-code-with-caravela)
-  - [Writing your own aspects](#writing-your-own-aspects)
-  - [How does PostSharp "Caravela" compare to Roslyn source generators?](#how-does-postsharp-caravela-compare-to-roslyn-source-generators)
-  - [How does PostSharp "Caravela" compare to PostSharp MSIL?](#how-does-postsharp-caravela-compare-to-postsharp-msil)
-  - [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
-  - [Architecture](#architecture)
+- [Table of contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Licensing](#licensing)
+- [Examples](#examples)
+- [We would love your feedback!](#we-would-love-your-feedback)
+- [Debugging code with Caravela](#debugging-code-with-caravela)
+- [Writing your own aspects](#writing-your-own-aspects)
+- [How does PostSharp "Caravela" compare to Roslyn source generators?](#how-does-postsharp-caravela-compare-to-roslyn-source-generators)
+- [How does PostSharp "Caravela" compare to PostSharp MSIL?](#how-does-postsharp-caravela-compare-to-postsharp-msil)
+- [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
+- [Architecture](#architecture)
 
 
 ## Introduction

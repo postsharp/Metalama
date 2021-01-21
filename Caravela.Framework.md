@@ -4,14 +4,13 @@
 
 ## Table of contents
 
-- [Caravela.Framework](#caravelaframework)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Limitations](#limitations)
-  - [Example](#example)
-  - [Templating algorithm](#templating-algorithm)
-  - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
-  - [Template context](#template-context)
+- [Table of contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Limitations](#limitations)
+- [Example](#example)
+- [Templating algorithm](#templating-algorithm)
+- [Aspects, advices and Initialize](#aspects-advices-and-initialize)
+- [Template context](#template-context)
 
 ## Introduction
 
