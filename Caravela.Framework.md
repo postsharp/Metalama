@@ -11,6 +11,7 @@
 - [Templating algorithm](#templating-algorithm)
 - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
 - [Template context](#template-context)
+- [Packaging an aspect](#packaging-an-aspect)
 
 ## Introduction
 
@@ -159,3 +160,10 @@ These members are:
 * `dynamic proceed()`: Gives control to the original code of the method the template is being applied to. When multiple advices per method are supported, this will instead give control to the next template in line, if there are any left.
 * `ITemplateContext target { get; }`: Gives access to information about the code element the template is being applied to.
 * `T compileTime<T>( T expression )`: Informs the templating engine that this expression should be considered to be compile-time, even when it normally would not. Other than that, the input value is returned unchanged.
+
+
+## Packaging an aspect
+
+How to create a NuGet package?
+
+TODO
