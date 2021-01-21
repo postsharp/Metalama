@@ -9,7 +9,7 @@ Caravela is built on top of a fork of [Roslyn](https://github.com/dotnet/roslyn)
 
 Caravela is a free preview of a future commercial product. Because of that, any version of the Caravela preview will stop working 90 days after it has been built. To continue using it, you will need to update to a newer preview.
 
-If you have any feedback regarding Caravela, please [open an issue](https://github.com/postsharp/Caravela/issues/new), or contact us directly at hello@postsharp.net.
+If you have any feedback regarding Caravela, please [open an issue](https://github.com/postsharp/Caravela/issues/new), [start a discussion](https://github.com/postsharp/Caravela/discussions/new), or contact us directly at hello@postsharp.net.
 
 More detailed information is available about:
 
