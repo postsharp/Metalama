@@ -1,7 +1,14 @@
 # PostSharp "Caravela"
 
+> You can try PostSharp "Caravela" in your browser, without installing anything, at https://try.postsharp.net/.
+
+
+## Table of contents
 - [PostSharp "Caravela"](#postsharp-caravela)
-  - [Try PostSharp "Caravela" today from your browser!](#try-postsharp-caravela-today-from-your-browser)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Licensing](#licensing)
+  - [Examples](#examples)
   - [We would love your feedback!](#we-would-love-your-feedback)
   - [Debugging code with Caravela](#debugging-code-with-caravela)
   - [Writing your own aspects](#writing-your-own-aspects)
@@ -10,17 +17,25 @@
   - [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
   - [Architecture](#architecture)
 
+
+## Introduction
+
 PostSharp "Caravela" is an extension of the Microsoft "Roslyn" C# compiler that allows you to automatically transform your source code at build time 
 (and, in the future, design time) based on encapsulated code transformations called _aspects_. PostSharp "Caravela" can be used for aspect-oriented 
 programming, but is not limited to it.
+
+PostSharp "Caravela" is intended to replace the MSIL-based technology stack that is now the foundation of PostSharp and its copies.
+
+## Licensing
+
+PostSharp "Caravela" is currently released under the terms of the Evaluation License of PostSharp.
 
 > Caravela is currently in EARLY PREVIEW stage and is not intended for commercial use.
 > Any version of the Caravela preview will stop working 90 days after it has been built. 
 > To continue using it, you will need to update to a newer preview.
 
-PostSharp "Caravela" is intended to replace the MSIL-based technology stack that is now the foundation of PostSharp and its copies.
 
-## Try PostSharp "Caravela" today from your browser!
+## Examples
 
 To see Caravela in action, go to [try.postsharp.net](https://try.postsharp.net).
 

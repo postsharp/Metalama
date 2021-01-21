@@ -1,8 +1,34 @@
 # Caravela.Framework
 
+> You can try PostSharp "Caravela" in your browser, without installing anything, at https://try.postsharp.net/.
+
+## Table of contents
+
+- [Caravela.Framework](#caravelaframework)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Limitations](#limitations)
+  - [Example](#example)
+  - [Templating algorithm](#templating-algorithm)
+  - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
+  - [Template context](#template-context)
+
+## Introduction
+
 Caravela.Framework is an [AOP](https://en.wikipedia.org/wiki/Aspect-oriented_programming) framework based on templates written in pure C#.
 
 These templates make it easy to write code that combines compile-time information (such as names and types of parameters of a method) and run-time information (such as parameter values) in a natural way, without having to learn another language or having to combine C# with some special templating language.
+
+## Limitations
+
+Caravela.Framework is in a very early preview, which means it currently has severe limitations:
+
+* `OverrideMethod` is the only available aspect/advice;
+* many constructs of C# (including very common ones) are not supported in templates;
+* only a single advice can be applied to each method.
+
+
+## Example
 
 For example, consider this simple aspect, which logs the name of a method and information about its parameters to the console and then lets it execute as usual:
 
@@ -52,11 +78,43 @@ void CountDown(string format, int n)
 
 Notice that the compile-time `foreach` loop was unrolled, so that each parameter has its own statement and that the compile-time expressions `parameter.Type` and `parameter.Name` have been evaluated and even folded with the nearby constants. On the other hand, the run-time calls to `Console.WriteLine` have been preserved. The expression `parameter.Value` is special, and has been translated to accessing the values of the parameters.
 
-Caravela.Framework is in a very early preview, which means it currently has severe limitations:
+## Templating algorithm
 
-* `OverrideMethod` is the only available aspect/advice
-* many constructs of C# (including very common ones) are not supported in templates
-* only a single advice can be applied to each method
+The template engine assigns any expression and statement in your template code to one of these two _scopes_: compile time, or run time.
+It uses both inference and coercion rules. When conflicts happen between rules, you will get a compile-time error.
+
+Suppose we have an expression _F(x,y)_. The rules are the following:
+
+* If _x_ is run-time, then _F(x,*)_ is also run-time (inference to run-time).
+  
+    Example: `DateTime.Now` is run-time, therefore `DateTime.Now.Day` is run-time too.
+    
+* If _F_ is compile-time then _x_ and _y_ must be compile-time (coercion to build-time).
+
+    Example: in `target.Method.Parameters[i]`, `i` must be build-time.
+
+* The special method _compileTime(x)_ coerces _x_ to be compile-time.
+
+    Example: `compileTime( DateTime.Now )` returns the compilation time.
+
+* When a build-time member returns a _dynamic_ value, for instance _IParameter.Value_, this value is run-time even if the 
+  member itself is run-time.
+
+    Example: `parameter.Value` is run-time and `compileTime( parameter.Value )` is invalid.
+
+* Some expressions have undeterminated scope (for instance literals or instance of types that exist both at build-time and run-time). In case
+  of ambiguity, run-time scope is assumed. If the default scope is not adequate, you should use the _compileTime_ method.
+
+    Example: `new StringBuilder()` is run-time.
+
+* Local variables can be either run-time or build-time. The scope is uniquely determined by the expression of the variable initializer.
+  The previous rules are applied.
+
+  Examples:
+    * In `int i = 0`, `i` is run-time.
+    * In `int i = compileTime(0)`, `i` is compile-time.
+    * In `var p = target.Method.Parameter[i]`, `p` is compile-time.
+
 
 ## Aspects, advices and Initialize
 
