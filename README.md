@@ -5,6 +5,7 @@
 
 ## Table of contents
 - [Table of contents](#table-of-contents)
+- [See also](#see-also)
 - [Introduction](#introduction)
 - [Licensing](#licensing)
 - [Examples](#examples)
@@ -16,6 +17,10 @@
 - [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
 - [Architecture](#architecture)
 
+## See also
+
+- [Caravela.Framework documentation](Caravela.Framework.md)
+- [Caravela.Framework.Sdk documentation](Caravela.Framework.Sdk.md)
 
 ## Introduction
 
