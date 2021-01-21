@@ -10,8 +10,8 @@
   - [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
   - [Architecture](#architecture)
 
-PostSharp "Caravela" is an extension of the Microsoft "Roslyn" C# compiler that allows you automatically transform your source code at build time 
-(and, in the future, design time) based on encapsulated code transformations are called _aspects_. PostSharp "Caravela" can be used for aspect-oriented 
+PostSharp "Caravela" is an extension of the Microsoft "Roslyn" C# compiler that allows you to automatically transform your source code at build time 
+(and, in the future, design time) based on encapsulated code transformations called _aspects_. PostSharp "Caravela" can be used for aspect-oriented 
 programming, but is not limited to it.
 
 > Caravela is currently in EARLY PREVIEW stage and is not intended for commercial use.
@@ -58,10 +58,10 @@ see [Debugging](Debugging.md).
 
 ### Caravela.Framework: the simple and safe aspect framework
 
-[Caravela.Framework](Caravela.Framework.md) is a aspect-oriented framework that allows you to write code transformations and
-code generators in a simple and natural way, without working with compiler APIes.
+[Caravela.Framework](Caravela.Framework.md) is an aspect-oriented framework that allows you to write code transformations and
+code generators in a simple and natural way, without working with compiler APIs.
 
-> Caravela.Framework is now in VERY EARLY PREVIEW. It is not considered to be complete even except for the simplest use cases.
+> Caravela.Framework is now in VERY EARLY PREVIEW. It is not considered to be complete except for the simplest use cases.
 > Our ambition is to implement all features of PostSharp MSIL into Caravela.Framework.
 
 ### Caravela.Framework.Sdk: the low-level extensibility API
@@ -77,7 +77,7 @@ in any way, without any guard or simplification.
 
 Unlike Roslyn source generators, PostSharp "Caravela":
 
- * can replace or enhance hand-written code (Roslyn code source generators are additive only),
+ * can replace or enhance hand-written code (Roslyn source generators are additive only),
  * allows you to write aspects (or code transformations):
      * in your main project (instead of a separate project),
      * using a simple and natural API (instead of using the complex Roslyn API).
@@ -92,8 +92,8 @@ Compared to PostSharp MSIL, PostSharp "Caravela":
 
 * runs directly inside the compiler process (it is a fork of Roslyn), does not require an external process, and is therefore much faster;
 * uses the Roslyn code model and level of abstraction, instead of MSIL;
-* does not load the load the whole project being built in the compiler process, therefore the cross-compilation issues that
-  has plagued PostSharp for many years;
+* does not load the whole project being built in the compiler process, therefore it avoids the cross-compilation issues that
+  have plagued PostSharp for many years;
 * will be able to integrate with the IDE for a better design-time experience.
 
 ## Compatibility with PostSharp MSIL
