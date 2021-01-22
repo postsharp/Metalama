@@ -96,10 +96,12 @@ in any way, without any guard or simplification.
 
 Unlike Roslyn source generators, PostSharp "Caravela":
 
- * can replace or enhance hand-written code (Roslyn source generators are additive only),
+ * can replace or enhance hand-written code (Roslyn source generators are additive only: you just can add partial classes);
  * allows you to write aspects (or code transformations):
      * in your main project (instead of a separate project),
-     * using a simple and natural API (instead of using the complex Roslyn API).
+     * using the C# language, with Intellisense and code validation (instead of building a string);
+ * is therefore a real and complete framework for _aspect-oriented programming_ in C#, with the same level of functionality
+    than what exists in other languages (such as AspectJ for Java).
 
 
 ## How does PostSharp "Caravela" compare to PostSharp MSIL?
