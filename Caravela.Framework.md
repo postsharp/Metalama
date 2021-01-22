@@ -8,7 +8,7 @@
 - [Introduction](#introduction)
 - [Limitations](#limitations)
 - [Example](#example)
-- [Inherence rules](#inherence-rules)
+- [Inference rules](#inference-rules)
 - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
 - [Template context](#template-context)
 - [Packaging an aspect](#packaging-an-aspect)
