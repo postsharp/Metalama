@@ -114,12 +114,12 @@ You will enjoy the following benefits with Caravela compared to PostSharp:
 
 * **Faster builds**: Caravela runs directly inside the compiler process (it is a fork of Roslyn), does not require an external process, 
   and is therefore much faster;
+* **More powerful transformations**: The templating technology used by Caravela allows for more control over code than what was possible
+  with PostSharp MSIL.
 * **Better multi-platform support**: Caravela does not load the whole project being built in the compiler process, therefore it avoids the 
   cross-compilation issues that have plagued PostSharp for many years;
 * **Better design-time experience**: You will see introduced members and interfaces in Intellisence because Caravela will do that
   at design time and not at post-compilation time. No need for weird casts.
-* **More powerful transformations**: The templating technology used by Caravela allows for more control over code than what was possible
-  with PostSharp MSIL.
 * **Better run-time performance**: Because of code generation improvements, you can create aspects that execute much faster.
 * **Better debugging experience**:  You can switch from source code view to transformed code view can debug the code exactly 
   how it is executed.

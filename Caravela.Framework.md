@@ -8,7 +8,7 @@
 - [Introduction](#introduction)
 - [Limitations](#limitations)
 - [Example](#example)
-- [Templating algorithm](#templating-algorithm)
+- [Inherence rules](#inherence-rules)
 - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
 - [Template context](#template-context)
 - [Packaging an aspect](#packaging-an-aspect)
@@ -78,7 +78,7 @@ void CountDown(string format, int n)
 
 Notice that the compile-time `foreach` loop was unrolled, so that each parameter has its own statement and that the compile-time expressions `parameter.Type` and `parameter.Name` have been evaluated and even folded with the nearby constants. On the other hand, the run-time calls to `Console.WriteLine` have been preserved. The expression `parameter.Value` is special, and has been translated to accessing the values of the parameters.
 
-## Templating algorithm
+## Inherence rules
 
 The template engine assigns any expression and statement in your template code to one of these two _scopes_: compile time, or run time.
 It uses both inference and coercion rules. When conflicts happen between rules, you will get a compile-time error.
@@ -113,8 +113,28 @@ Suppose we have an expression _F(x,y)_. The rules are the following:
   Examples:
     * In `int i = 0`, `i` is run-time.
     * In `int i = compileTime(0)`, `i` is compile-time.
-    * In `var p = target.Method.Parameter[i]`, `p` is compile-time.
+    * In `var p = target.Method.Parameters[i]`, `p` is compile-time.
 
+
+* `if ... else` conditions are compile-time if and only if the condition is compile-time.
+
+    Examples:
+
+    * `if ( target.Method.ReturnType.Is(typeof(void)) ) {} else {}` is compile-time.
+    * `if ( target.Method.Parameters[i].Value != null) {} else {}` is run-time.
+
+* `foreach` loops are compile-time if and only if the expression is compile-time.
+
+    Examples:
+
+     * `foreach ( var p in target.Method.Parameters ) {}` is compile-time (therefore `p` is compile-time).
+     * `foreach ( var in in new [] { 1, 2, 3 } ) { }` is run-time.
+
+* `for` loops are compile-time if and only if _all_ members (initializer, condition, incrementation) are compile-time.
+  
+    TODO: `for` loops are now run-time only. Compile-time detection has not been implemented.
+
+* `proceed()` can be invoked only once in a template. It cannot be invoked from a compile-time loop.
 
 ## Aspects, advices and Initialize
 
