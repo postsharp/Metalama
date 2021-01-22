@@ -83,13 +83,13 @@ Notice that the compile-time `foreach` loop was unrolled, so that each parameter
 The template engine assigns any expression and statement in your template code to one of these two _scopes_: compile time, or run time.
 It uses both inference and coercion rules. When conflicts happen between rules, you will get a compile-time error.
 
-Suppose we have an expression _F(x,y)_. The rules are the following:
+The inference and coercion rules are the following:
 
-* If _x_ is run-time, then _F(x,*)_ is also run-time (inference to run-time).
+* If _x_ is run-time, then the result of any expression containing _x_ is also run-time (inference to run-time).
   
-    Example: `DateTime.Now` is run-time, therefore `DateTime.Now.Day` is run-time too.
+    Example: `DateTime.Now` is run-time, therefore `DateTime.Now.Day` and `DateTime.Now.Day + 5` are run-time too.
     
-* If _F_ is compile-time then _x_ and _y_ must be compile-time (coercion to build-time).
+* If _F_ is a compile-time function its parameters must be compile-time (coercion to build-time).
 
     Example: in `target.Method.Parameters[i]`, `i` must be build-time.
 
@@ -105,12 +105,13 @@ Suppose we have an expression _F(x,y)_. The rules are the following:
 * Some expressions have undeterminated scope (for instance literals or instance of types that exist both at build-time and run-time). In case
   of ambiguity, run-time scope is assumed. If the default scope is not adequate, you should use the _compileTime_ method.
 
-    Example: `new StringBuilder()` is run-time.
+    Example: `new StringBuilder()` is run-time but `compileTime( new StringBuilder() )` is compile-time.
 
-* Local variables can be either run-time or build-time. The scope is uniquely determined by the expression of the variable initializer.
-  The previous rules are applied.
+* Local variables can be either compile-time or run-time. The scope is uniquely determined by the expression of the variable initializer.
+  The previous rules are applied. Local variables without an initializer are run-time.
 
   Examples:
+    * In `int i;`, `i` is run-time.
     * In `int i = 0`, `i` is run-time.
     * In `int i = compileTime(0)`, `i` is compile-time.
     * In `var p = target.Method.Parameters[i]`, `p` is compile-time.
@@ -135,6 +136,8 @@ Suppose we have an expression _F(x,y)_. The rules are the following:
     TODO: `for` loops are now run-time only. Compile-time detection has not been implemented.
 
 * `proceed()` can be invoked only once in a template. It cannot be invoked from a compile-time loop.
+
+* Compile-time variables cannot be assigned from run-time loops.
 
 ## Aspects, advices and Initialize
 
