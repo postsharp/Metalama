@@ -8,7 +8,7 @@
 - [Introduction](#introduction)
 - [Limitations](#limitations)
 - [Example](#example)
-- [Inherence rules](#inherence-rules)
+- [Inference rules](#inference-rules)
 - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
 - [Template context](#template-context)
 - [Packaging an aspect](#packaging-an-aspect)
@@ -78,7 +78,7 @@ void CountDown(string format, int n)
 
 Notice that the compile-time `foreach` loop was unrolled, so that each parameter has its own statement and that the compile-time expressions `parameter.Type` and `parameter.Name` have been evaluated and even folded with the nearby constants. On the other hand, the run-time calls to `Console.WriteLine` have been preserved. The expression `parameter.Value` is special, and has been translated to accessing the values of the parameters.
 
-## Inherence rules
+## Inference rules
 
 The template engine assigns any expression and statement in your template code to one of these two _scopes_: compile time, or run time.
 It uses both inference and coercion rules. When conflicts happen between rules, you will get a compile-time error.
