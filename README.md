@@ -1,5 +1,7 @@
 # PostSharp "Caravela"
 
+[![Gitter](https://badges.gitter.im/postsharp/caravela.svg)](https://gitter.im/postsharp/caravela?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 > You can try PostSharp "Caravela" in your browser, without installing anything, at https://try.postsharp.net/.
 
 

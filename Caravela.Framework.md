@@ -89,20 +89,20 @@ The inference and coercion rules are the following:
   
     Example: `DateTime.Now` is run-time, therefore `DateTime.Now.Day` and `DateTime.Now.Day + 5` are run-time too.
     
-* If _F_ is a compile-time function its parameters must be compile-time (coercion to build-time).
+* If _F_ is a compile-time function, its parameters must be compile-time (coercion to compile-time).
 
-    Example: in `target.Method.Parameters[i]`, `i` must be build-time.
+    Example: in `target.Method.Parameters[i]`, `i` must be compile-time.
 
 * The special method _compileTime(x)_ coerces _x_ to be compile-time.
 
     Example: `compileTime( DateTime.Now )` returns the compilation time.
 
-* When a build-time member returns a _dynamic_ value, for instance _IParameter.Value_, this value is run-time even if the 
-  member itself is run-time.
+* When a compile-time member returns a _dynamic_ value, for instance _IParameter.Value_, this value is run-time even if the 
+  member itself is compile-time.
 
     Example: `parameter.Value` is run-time and `compileTime( parameter.Value )` is invalid.
 
-* Some expressions have undeterminated scope (for instance literals or instance of types that exist both at build-time and run-time). In case
+* Some expressions have undetermined scope (for instance literals or instance of types that exist both at compile-time and run-time). In case
   of ambiguity, run-time scope is assumed. If the default scope is not adequate, you should use the _compileTime_ method.
 
     Example: `new StringBuilder()` is run-time but `compileTime( new StringBuilder() )` is compile-time.
@@ -129,7 +129,7 @@ The inference and coercion rules are the following:
     Examples:
 
      * `foreach ( var p in target.Method.Parameters ) {}` is compile-time (therefore `p` is compile-time).
-     * `foreach ( var in in new [] { 1, 2, 3 } ) { }` is run-time.
+     * `foreach ( var i in new [] { 1, 2, 3 } ) { }` is run-time.
 
 * `for` loops are compile-time if and only if _all_ members (initializer, condition, incrementation) are compile-time.
   
@@ -187,6 +187,4 @@ These members are:
 
 ## Packaging an aspect
 
-How to create a NuGet package?
-
-TODO
+There is nothing special about creating a NuGet package for a project that contains Caravela.Framework aspects, it works the same as creating a NuGet package for a regular .NET library.
