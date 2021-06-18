@@ -1,6 +1,6 @@
 # Caravela.Framework
 
-> You can try PostSharp "Caravela" in your browser, without installing anything, at https://try.postsharp.net/.
+> You can try PostSharp "Caravela" in your browser, without installing anything, at <https://try.postsharp.net/>.
 
 ## Table of contents
 
@@ -8,7 +8,6 @@
 - [Introduction](#introduction)
 - [Limitations](#limitations)
 - [Example](#example)
-- [Inference rules](#inference-rules)
 - [Aspects, advices and Initialize](#aspects-advices-and-initialize)
 - [Template context](#template-context)
 - [Packaging an aspect](#packaging-an-aspect)
@@ -23,10 +22,9 @@ These templates make it easy to write code that combines compile-time informatio
 
 Caravela.Framework is in a very early preview, which means it currently has severe limitations:
 
-* `OverrideMethod` is the only available aspect/advice;
-* many constructs of C# (including very common ones) are not supported in templates;
-* only a single advice can be applied to each method.
-
+- `OverrideMethod` is the only available aspect/advice;
+- many constructs of C# (including very common ones) are not supported in templates;
+- only a single advice can be applied to each method.
 
 ## Example
 
@@ -78,67 +76,6 @@ void CountDown(string format, int n)
 
 Notice that the compile-time `foreach` loop was unrolled, so that each parameter has its own statement and that the compile-time expressions `parameter.Type` and `parameter.Name` have been evaluated and even folded with the nearby constants. On the other hand, the run-time calls to `Console.WriteLine` have been preserved. The expression `parameter.Value` is special, and has been translated to accessing the values of the parameters.
 
-## Inference rules
-
-The template engine assigns any expression and statement in your template code to one of these two _scopes_: compile time, or run time.
-It uses both inference and coercion rules. When conflicts happen between rules, you will get a compile-time error.
-
-The inference and coercion rules are the following:
-
-* If _x_ is run-time, then the result of any expression containing _x_ is also run-time (inference to run-time).
-  
-    Example: `DateTime.Now` is run-time, therefore `DateTime.Now.Day` and `DateTime.Now.Day + 5` are run-time too.
-    
-* If _F_ is a compile-time function, its parameters must be compile-time (coercion to compile-time).
-
-    Example: in `target.Method.Parameters[i]`, `i` must be compile-time.
-
-* The special method _compileTime(x)_ coerces _x_ to be compile-time.
-
-    Example: `compileTime( DateTime.Now )` returns the compilation time.
-
-* When a compile-time member returns a _dynamic_ value, for instance _IParameter.Value_, this value is run-time even if the 
-  member itself is compile-time.
-
-    Example: `parameter.Value` is run-time and `compileTime( parameter.Value )` is invalid.
-
-* Some expressions have undetermined scope (for instance literals or instance of types that exist both at compile-time and run-time). In case
-  of ambiguity, run-time scope is assumed. If the default scope is not adequate, you should use the _compileTime_ method.
-
-    Example: `new StringBuilder()` is run-time but `compileTime( new StringBuilder() )` is compile-time.
-
-* Local variables can be either compile-time or run-time. The scope is uniquely determined by the expression of the variable initializer.
-  The previous rules are applied. Local variables without an initializer are run-time.
-
-  Examples:
-    * In `int i;`, `i` is run-time.
-    * In `int i = 0`, `i` is run-time.
-    * In `int i = compileTime(0)`, `i` is compile-time.
-    * In `var p = target.Method.Parameters[i]`, `p` is compile-time.
-
-
-* `if ... else` conditions are compile-time if and only if the condition is compile-time.
-
-    Examples:
-
-    * `if ( target.Method.ReturnType.Is(typeof(void)) ) {} else {}` is compile-time.
-    * `if ( target.Method.Parameters[i].Value != null) {} else {}` is run-time.
-
-* `foreach` loops are compile-time if and only if the expression is compile-time.
-
-    Examples:
-
-     * `foreach ( var p in target.Method.Parameters ) {}` is compile-time (therefore `p` is compile-time).
-     * `foreach ( var i in new [] { 1, 2, 3 } ) { }` is run-time.
-
-* `for` loops are compile-time if and only if _all_ members (initializer, condition, incrementation) are compile-time.
-  
-    TODO: `for` loops are now run-time only. Compile-time detection has not been implemented.
-
-* `proceed()` can be invoked only once in a template. It cannot be invoked from a compile-time loop.
-
-* Compile-time variables cannot be assigned from run-time loops.
-
 ## Aspects, advices and Initialize
 
 While abstract aspects like `OverrideMethodAspect` work well for simple needs, more customization is required in more complex cases. For example, consider the situation where you want to apply an aspect attribute to a type and have it affect all its methods. In Caravela, you can do this by directly implementing the `IAspect<T>` interface and putting this logic into the `Initialize` method. For example:
@@ -180,10 +117,9 @@ Inside a template method, extra operations are available through members of the 
 
 These members are:
 
-* `dynamic proceed()`: Gives control to the original code of the method the template is being applied to. When multiple advices per method are supported, this will instead give control to the next template in line, if there are any left.
-* `ITemplateContext target { get; }`: Gives access to information about the code element the template is being applied to.
-* `T compileTime<T>( T expression )`: Informs the templating engine that this expression should be considered to be compile-time, even when it normally would not. Other than that, the input value is returned unchanged.
-
+- `dynamic proceed()`: Gives control to the original code of the method the template is being applied to. When multiple advices per method are supported, this will instead give control to the next template in line, if there are any left.
+- `ITemplateContext target { get; }`: Gives access to information about the code element the template is being applied to.
+- `T compileTime<T>( T expression )`: Informs the templating engine that this expression should be considered to be compile-time, even when it normally would not. Other than that, the input value is returned unchanged.
 
 ## Packaging an aspect
 

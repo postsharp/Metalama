@@ -5,7 +5,7 @@
         {
           "files": [
               "Caravela.Framework/Caravela.Framework.csproj",
-              "Caravela.Reactive/Caravela.Reactive.csproj",
+              "Caravela.TestFramework/Caravela.TestFramework.csproj",
               "Caravela.Framework.Sdk/Caravela.Framework.Sdk.csproj",
               ],
           "src": "c:/src/Caravela"
@@ -13,7 +13,9 @@
       ],
       "dest": "api",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "netstandard2.0"}
     }
   ],
   "build": {
@@ -26,15 +28,10 @@
       },
       {
         "files": [
-          "*.md",
+          "**.md",
           "toc.yml"
         ],
-        "src": ".."
-      },
-      {
-        "files": [
-          "*.md"
-        ]
+        "src": "../conceptual"
       }
     ],
     "resource": [
@@ -47,7 +44,8 @@
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md"
+          "apidoc/**.md",
+          "namespaces/**.md"
         ],
         "exclude": [
           "obj/**",
@@ -55,15 +53,21 @@
         ]
       }
     ],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
-    "template":[ "default", "packages/memberpage.2.56.6/content"],
+    "template":[ 
+      "default", 
+      "packages/memberpage.2.56.6/content",
+      "C:/src/Caravela.Home/code/Caravela.Documentation.DfmExtensions/bin/Debug"],
     "postProcessors": [],
-    "markdownEngineName": "markdig",
+    "markdownEngineName": "dfm",
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    "disableGitFeatures": true
   }
 }
