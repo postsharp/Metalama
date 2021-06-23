@@ -4,9 +4,13 @@ $ErrorActionPreference = "Stop"
 
 function RemoveLockedFiles()
 {
+    gcim win32_process | where { $_.Name -eq "iisexpress.exe" } | foreach { 
+        Stop-Process -ID $_.ProcessId 
+        Start-Sleep  -Seconds 1
+    }
+
     # Delete the output soon because it may be locked.
-    if ( test-path "output\Caravela.Doc.zip")
-    {
+    if ( test-path "output\Caravela.Doc.zip") {
        del "output\Caravela.Doc.zip"
     }
 
@@ -19,8 +23,7 @@ function Clean()
 
  
     # Delete temporary files (disable incremental build)
-    if ( test-path "obj" )
-    {
+    if ( test-path "obj" ) {
        rd "obj" -Recurse -Force
     }
 
@@ -49,6 +52,7 @@ function BuildExtensions()
 
 function RunTests()
 {
+    dotnet restore "..\code\Caravela.Documentation.SampleCode.sln"
     dotnet test "..\code\Caravela.Documentation.SampleCode.sln"
 
     if ($LASTEXITCODE -ne 0 ) { throw "docfx metadata failed." }
@@ -65,8 +69,7 @@ function BuildDoc()
 function Publish()
 {
 
-    if (!(test-path "output" ))
-    {
+    if (!(test-path "output" )) {
        New-Item -ItemType Directory -Force -Path "output"
     }
 
