@@ -6,12 +6,12 @@
           "files": [
               "Caravela.Framework/Caravela.Framework.csproj",
               "Caravela.TestFramework/Caravela.TestFramework.csproj",
-              "Caravela.Framework.Sdk/Caravela.Framework.Sdk.csproj",
+              "Caravela.Framework.Sdk/Caravela.Framework.Sdk.csproj"
               ],
           "src": "c:/src/Caravela"
         }
       ],
-      "dest": "api",
+      "dest": "obj/api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
       "properties": {
@@ -22,8 +22,8 @@
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
+          "obj/api/**.yml",
+          "obj/api/index.md"
         ]
       },
       {
@@ -44,7 +44,6 @@
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md",
           "namespaces/**.md"
         ],
         "exclude": [
@@ -61,7 +60,7 @@
     "fileMetadataFiles": [],
     "template":[ 
       "default", 
-      "packages/memberpage.2.56.6/content",
+      "packages/memberpage.2.58.0/content",
       "C:/src/Caravela.Home/code/Caravela.Documentation.DfmExtensions/bin/Debug"],
     "postProcessors": [],
     "markdownEngineName": "dfm",
