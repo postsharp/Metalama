@@ -69,3 +69,9 @@ class IEventInvoker {
 }
 
 ```
+
+## Example
+
+The following aspect prints the value of all fields and automatic properties.
+
+[!include[Dynamic](../../code/Caravela.Documentation.SampleCode.AspectFramework/PrintFieldValues.cs?sample)]

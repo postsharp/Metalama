@@ -12,7 +12,7 @@ Before moving forward, let's illustrate this concept with an example. The next a
 > [!NOTE]
 > To benefit from syntax highlighting in Visual Studio, install the PostSharp "Caravela" Tools for Visual Studio (TODO: link)
 
-[!include[Simple Logging](../../code/Caravela.Documentation.SampleCode.OverrideMethod/LogParameters.cs?sample)]
+[!include[Simple Logging](../../code/Caravela.Documentation.SampleCode.AspectFramework/LogParameters.cs?sample)]
 
 ***
 
@@ -62,13 +62,23 @@ There are two exceptions to this rule:
 - aspect members whose signature contain a run-time-only type cannot be accessed from a template.
 - template members are not considered as compile-time (TODO - specify)
 
-TODO: example, e.g. retry
+#### Example
 
-### Compile-time 'if'
+The following example shows a simple _Retry_ aspect. The maximum number of attempts can be configured by setting a property of the custom attribute.
+
+[!include[Retry](../../code/Caravela.Documentation.SampleCode.AspectFramework/Retry.cs?sample)]
+
+### Compile-time if
 
 If the condition of an `if` statement is a compile-time expression, the `if` statement will be interpreted at compile-time.
 
-### Compile-time 'foreach'
+#### Example
+
+In the following example, the aspect prints a different string for static methods than for non-instance ones.
+
+[!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeIf.cs?sample)]
+
+### Compile-time foreach
 
 If the expression of a `foreach` statement is a compile-time expression, the `foreach` statement will be interpreted at compile-time.
 
@@ -79,13 +89,18 @@ It is not possible to create compile-time `for` or `while` loops. `goto` stateme
 >
 > - a run-time `if`, `else`, `for`, `foreach`, `while`;
 > - a `catch` or `finally`.
->
+
+
+#### Example
+
+The following aspect uses a `foreach` loop to print the value of each parameter of the method to which it is applied.
+
+[!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeForEach.cs?sample)]
 
 
 ### typeof, nameof expressions
 
 `typeof` and `nameof` expressions in compile-time code are always pre-compiled into compile-time expression, which makes it possible for compile-time code to reference run-time types.
-
 
 ### Custom compile-time methods
 
@@ -120,16 +135,16 @@ You can use `meta.RunTime( expression )` to convert the result of a compile-time
 - Tuples;
 - Reflection objects: @"System.Type", @"System.Reflection.MethodInfo", @"System.Reflection.ConstructorInfo", @"System.Reflection.EventInfo", @"System.Reflection.PropertyInfo", @"System.Reflection.FieldInfo";
 - @"System.Guid";
-- Generic collections: @"System.Collection.Generic.List`1" and @"System.Collection.Generic.Dictionary`2";
+- Generic collections: <xref:System.Collections.Generic.List%601> and <xref:System.Collections.Generic.Dictionary%602>;
 - @"System.DateTime" and @"System.TimeSpan".
 
-This is best seen on an example:
+It is not possible to build custom convertors at the moment.
 
-[!include[Dynamic](../../code/Caravela.Documentation.SampleCode.OverrideMethod/ConvertToRunTime.cs?sample)]
+#### Example
+
+[!include[Dynamic](../../code/Caravela.Documentation.SampleCode.AspectFramework/ConvertToRunTime.cs?sample)]
 
 (In the transformed code, the call to `Intrinsics.GetRuntimeTypeHandle` is transformed into a `typeof` later in the compilation process.)
-
-***
 
 ### Dynamic code
 
@@ -162,6 +177,12 @@ You can combine dynamic code and compile-time expressions:
 // Translated into: this.OnPropertyChanged( "MyProperty" );
 meta.This.OnPropertyChanged( meta.Property.Name );
 ```
+
+### Generating calls to the call model
+
+When you have a @Caravela.Framework.Code representation of a declaration, you may want to access it from your generated run-time code. You can do this by using the `Invokers` property exposed by the @Caravela.Framework.Code.IMethod, @Caravela.Framework.Code.IFieldOrProperty or @Caravela.Framework.Code.IEvent interfaces.
+
+For details, see the documentation of the @"Caravela.Framework.Code.Invokers" namespace.
 
 ## Debugging templates
 

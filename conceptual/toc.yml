@@ -3,27 +3,44 @@ items:
   href: Conceptual.md
   items:
 
-  - name: Creating Aspects
+  - name: Building Aspects
     href: Aspects/Aspects.md
     items:
-      - name: Overriding Methods
-        topicUid: overriding-methods
-      - name: Overriding Fields or Properties
-        topicUid: overriding-fields-or-properties
-      - name: Overriding Events
-        topicUid: overriding-events
+      - name: Getting Started With the Simplified API
+        topicUid: simple-aspects
+        items:
+        - name: Overriding Methods
+          topicUid: overriding-methods
+        - name: Overriding Fields or Properties
+          topicUid: overriding-fields-or-properties
+        - name: Overriding Events
+          topicUid: overriding-events
       - name: Design of Caravela Aspect Framework
         topicUid: aspect-framework-design
       - name: Caravela Template Language
         topicUid: templates
       - name: Reporting and Suppressing Diagnostics
         topicUid: diagnostics
-      - name: "Overriding Members: Reloaded"
-        topicUid: overriding-members
-      - name: Introducing Members
-        topicUid: introducing-members
-      - name: Implementing Interfaces
-        topicUid: implementing-interfaces
+      - name: Advising Code
+        topicUid: advising-code
+        items:
+        - name: "Overriding Members: Reloaded"
+          topicUid: overriding-members
+        - name: Introducing Members
+          topicUid: introducing-members
+        - name: Implementing Interfaces
+          topicUid: implementing-interfaces
+        - name: Sharing State With Advices
+          topicUid: sharing-state-with-advices
+      - name: Debugging Aspects
+        topicUid: debugging-aspects
+      - name: Testing Aspects
+        topicUid: testing
+        items:
+        - name: Compile-Time Testing
+          topicUid: compile-time-testing        
+        - name: Run-Time Testing
+          topicUid: run-time-testing
 
   - name: Using Aspects
     topicUid: using-aspects
@@ -32,18 +49,13 @@ items:
         topicUid: applying-aspects
       - name: Ordering Aspects
         topicUid: ordering-aspects
+      - name: Debugging Code With Aspects
+        topicUid: debugging
 
 
-  - name: Testing Aspects
-    topicUid: testing
-    items:
-    - name: Run-Time Testing
-      topicUid: run-time-testing
-    - name: Compile-Time Testing
-      topicUid: compile-time-testing
+
 
   - name: Caravela.Framework.Sdk
     href: Sdk/Sdk.md
 
-  - name: Debugging
-    topicUid: debugging
+ 

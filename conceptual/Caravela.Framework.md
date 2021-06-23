@@ -2,16 +2,6 @@
 
 > You can try PostSharp "Caravela" in your browser, without installing anything, at <https://try.postsharp.net/>.
 
-## Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Limitations](#limitations)
-- [Example](#example)
-- [Aspects, advices and Initialize](#aspects-advices-and-initialize)
-- [Template context](#template-context)
-- [Packaging an aspect](#packaging-an-aspect)
-
 ## Introduction
 
 Caravela.Framework is an [AOP](https://en.wikipedia.org/wiki/Aspect-oriented_programming) framework based on templates written in pure C#.

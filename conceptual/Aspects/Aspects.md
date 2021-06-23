@@ -1,35 +1,19 @@
-# Creating Aspects
+---
+uid: aspects
+---
 
-There are two APIs to create aspects:
+# Building Aspects
 
-- The **simplified API** allows you to override methods and accessors of properties, fields, and events.
+This chapter explains how to build your own aspects. If you only want to learn how to use aspects written by others, you can skip this chapter in first reading. However, we suggest you to come back here if you want to understand better the "magic" behind Caravela.
 
-- The **complete API** exposes all features:
-  - override methods and accessors of properties, fields, and events;
-  - introduce methods, fields, properties, events;
-  - implement new interfaces into fields;
-  - create aspects that are made of several of the transformations above
+This chapter is structured as follows: first we give a few tricks to get started quickly with a smooth learning curve. Then we introduce you to the theory and design of the aspect framework, so you can leverage its complete power. We suggest you don't stop at the simplified _getting started_ API even if you quickly solve your problem at-hand because you may be able to find a better solution with a deeper understanding of the framework.
 
-The simplified API is based on the complete API, so they are just helper classes that you could create yourself.
-
-## Getting Started
-
-@"overriding-methods"
-
-@"overriding-fields-or-properties"
-
-@"overriding-events"
-
-## Understanding the framework design
-
-@"templates"
-
-@"aspect-framework-design"
-
-## Creating advanced aspects
-
-@"overriding-members"
-
-@"introducing-members"
-
-@"implementing-interfaces"
+| Section                  | Description                                                                                                     |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------|
+| @simple-aspects          | This section explains how to create simple aspects with a familiar object-oriented API and without much theory. |
+| @aspect-framework-design | This article gives the theory behind the Caravela aspect framework.                                             |
+| @templates               | This article explains how to create dynamic code templates.                                                     |
+| @diagnostics             | This article explains how to report or suppress errors, warnings and information messages.                      |
+| @advising-code           | This section explains how to create aspects that perform advanced code modifications using the complete API.    |
+| @testing                 | This section explains how to test aspects.                                                                      |
+| @debugging-aspects       | This article explains how to debug aspects.                                                                     |

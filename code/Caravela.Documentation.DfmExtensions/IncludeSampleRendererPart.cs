@@ -53,14 +53,14 @@ namespace Caravela.Documentation.DfmExtensions
             return stringBuilder.ToString();
         }
         
-        private static string FindProjectDirectory( string directory )
+        private static string FindParentDirectory( string directory, Predicate<string> predicate )
         {
             if ( directory == null )
             {
                 return null;
             }
 
-            if ( Directory.GetFiles( directory, "*.csproj" ).Length > 0 )
+            if ( predicate(directory) )
             {
                 return directory;
             }
@@ -68,7 +68,7 @@ namespace Caravela.Documentation.DfmExtensions
             {
                 var parentDirectory = Path.GetDirectoryName( directory );
 
-                return FindProjectDirectory( parentDirectory );
+                return FindParentDirectory( parentDirectory, predicate );
             }
         }
 
@@ -78,22 +78,29 @@ namespace Caravela.Documentation.DfmExtensions
                 Path.GetFullPath(Path.Combine((string) context.Variables["BaseFolder"], token.SourceInfo.File));
             
             var targetFileName = token.Src.Substring(0, token.Src.Length - suffix.Length);
+            var shortFileNameWithoutExtension = Path.GetFileNameWithoutExtension(targetFileName);
             var targetPath = Path.GetFullPath( Path.Combine(Path.GetDirectoryName(referencingFile), targetFileName) );
             var transformedPath = Path.ChangeExtension(targetPath, ".t.cs");
 
             // For the aspect, look into the rendered html file.
-            var projectDir = FindProjectDirectory(Path.GetDirectoryName(targetPath));
-            var targetRelativePath = new Uri(Path.Combine(projectDir, "_")).MakeRelativeUri(new Uri(targetPath)).ToString();
+            var projectDir = FindParentDirectory(Path.GetDirectoryName(targetPath), directory => Directory.GetFiles( directory, "*.csproj" ).Length > 0);
+            var gitDirectory = FindParentDirectory(Path.GetDirectoryName(targetPath), directory => Directory.Exists(Path.Combine(directory, ".git")));
+            
+            var targetPathRelativeToProjectDir = GetRelativePath(projectDir, targetPath);
+            var sourceDirectoryRelativeToGitDir = GetRelativePath(gitDirectory, Path.GetDirectoryName(targetPath));
             var aspectPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "highlighted",
-                Path.ChangeExtension(targetRelativePath, ".Aspect.t.html")));
+                Path.ChangeExtension(targetPathRelativeToProjectDir, ".Aspect.t.html")));
 
 
             var targetSrc = File.ReadAllText(targetPath);
             var aspectSrc = File.ReadAllText(aspectPath);
             var transformedSrc = File.ReadAllText(transformedPath);
+            const string gitBranch = "release/0.3";
+            const string gitHubProjectPath = "https://github.com/postsharp/Caravela/blob/" + gitBranch;
             
             
             var template = @"
+<a href=""GIT_ASPECT_URL"" class=""see-on-github"">See on GitHub</a>
  <div class=""tabGroup"" id=""tabgroup_IDENTIFIER"">
 <ul role=""tablist"">
 <li role=""presentation"">
@@ -118,15 +125,22 @@ namespace Caravela.Documentation.DfmExtensions
 </section>
 ";
 
+            var gitAspectUrl = gitHubProjectPath + "/" + sourceDirectoryRelativeToGitDir + "/" + shortFileNameWithoutExtension + ".Aspect.cs";
             StringBuffer sb = template
                 .Replace("IDENTIFIER", Interlocked.Increment(ref nextId).ToString())
-                .Replace("ASPECT_CODE",  aspectSrc )
+                .Replace("ASPECT_CODE", aspectSrc)
                 .Replace("TARGET_CODE", HtmlEncode(targetSrc))
-                .Replace("TRANSFORMED_CODE", HtmlEncode(transformedSrc));
+                .Replace("TRANSFORMED_CODE", HtmlEncode(transformedSrc))
+                .Replace("GIT_ASPECT_URL",
+                    gitAspectUrl);
             
                 
             return sb;
         }
 
+        private static string GetRelativePath(string projectDir, string targetPath)
+        {
+            return new Uri(Path.Combine(projectDir, "_")).MakeRelativeUri(new Uri(targetPath)).ToString();
+        }
     }
 }

@@ -3,6 +3,8 @@ uid: aspect-framework-design
 ---
 # Design of Caravela Aspect Framework
 
+## Conceptual Class Diagram
+
 An aspect is, by definition, a class that implements the <xref:Caravela.Framework.Aspects.IAspect%601> generic interface. The generic parameter of this interface is the type of declarations to which that aspect can be applied. For instance, an aspect that can be applied to a method must implement the `IAspect<IMethod>` interface and an aspect that can be applied to a named type must implement `IAspect<INamedType>`.
 
 ```mermaid
@@ -122,9 +124,13 @@ This feature is not yet implemented.
 
 Now that you know more about the design of the aspect framework, you can look at the implementation of the <xref:Caravela.Framework.Aspects.OverrideMethodAspect> abstract class. You can see that all this class is doing is to provide define an abstract method `OverrideMethod` and to add an advice to the target method where the template is the `OverrideMethod`.
 
-[!code-csharp[Main](../../code/Caravela.Documentation.SampleCode.OverrideMethod/OverrideMethodAspect.cs#aspect)]
+[!code-csharp[Main](../../code/Caravela.Documentation.SampleCode.AspectFramework/OverrideMethodAspect.cs#aspect)]
 
-### Example: an aspect targeting methods and properties
+### Example: an aspect targeting methods, fields and properties
+
+The following example shows a aspect that target methods, fields and properties with a single implementation class.
+
+[!include[Aspect Targeting Methods, Fields and Properties](../../code/Caravela.Documentation.SampleCode.AspectFramework/LogMethodAndProperty.cs?sample)]
 
 ## Code model versioning
 
@@ -153,7 +159,6 @@ Aspects cannot modify declarations of lower depth than the target of the aspect.
     4. Aspects layers are ordered.
 
 ### 2. Applying aspects
-
 
 For each aspect layer, by order of application (i.e., inverse order of execution):
 

@@ -1,15 +1,5 @@
 # Caravela.Framework.Sdk
 
-## Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Maturity](#maturity)
-- [Implementing an aspect](#implementing-an-aspect)
-- [Packaging your aspect with its weaver](#packaging-your-aspect-with-its-weaver)
-- [Examples](#examples)
-
-
 ## Introduction
 
 Caravela.Framework.Sdk offers direct access to Caravela's underlying code-modifying capabilities through [Roslyn-based APIs](https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/compiler-api-model). 
