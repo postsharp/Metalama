@@ -21,4 +21,4 @@ If your `BuildAspect` method needs to pass to a template method some state that 
 
 ### Example
 
-[!include[Tags](../../../code/Caravela.Documentation.SampleCode.AspectFramework/Tags.cs?sample)]
+[!include[Tags](../../../code/Caravela.Documentation.SampleCode.AspectFramework/Tags.cs)]

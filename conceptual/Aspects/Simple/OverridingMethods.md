@@ -27,11 +27,11 @@ You can override the hand-written body of a method with code automatically-gener
 
 The following code shows an empty @"Caravela.Framework.Aspects.OverrideMethodAspect", which does not do anything:
 
-[!code-csharp[Main](../../../code/Caravela.Documentation.SampleCode.AspectFramework/EmptyOverrideMethodAttribute.cs)]
+[!include[Empty OverrideMethodAttribute](../../../code/Caravela.Documentation.SampleCode.AspectFramework/EmptyOverrideMethodAttribute.cs)]
 
 ## Example: simple logging
 
 The following code writes a message to the system console before and after the method execution. The text includes the name of the target method.
 
-[!include[Simple Logging](../../../code/Caravela.Documentation.SampleCode.AspectFramework/SimpleLogging.cs?sample)]
+[!include[Simple Logging](../../../code/Caravela.Documentation.SampleCode.AspectFramework/SimpleLogging.cs)]
 

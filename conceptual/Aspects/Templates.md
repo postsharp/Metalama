@@ -12,7 +12,7 @@ Before moving forward, let's illustrate this concept with an example. The next a
 > [!NOTE]
 > To benefit from syntax highlighting in Visual Studio, install the PostSharp "Caravela" Tools for Visual Studio (TODO: link)
 
-[!include[Simple Logging](../../code/Caravela.Documentation.SampleCode.AspectFramework/LogParameters.cs?sample)]
+[!include[Simple Logging](../../code/Caravela.Documentation.SampleCode.AspectFramework/LogParameters.cs)]
 
 ***
 
@@ -66,7 +66,7 @@ There are two exceptions to this rule:
 
 The following example shows a simple _Retry_ aspect. The maximum number of attempts can be configured by setting a property of the custom attribute.
 
-[!include[Retry](../../code/Caravela.Documentation.SampleCode.AspectFramework/Retry.cs?sample)]
+[!include[Retry](../../code/Caravela.Documentation.SampleCode.AspectFramework/Retry.cs)]
 
 ### Compile-time if
 
@@ -76,7 +76,7 @@ If the condition of an `if` statement is a compile-time expression, the `if` sta
 
 In the following example, the aspect prints a different string for static methods than for non-instance ones.
 
-[!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeIf.cs?sample)]
+[!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeIf.cs)]
 
 ### Compile-time foreach
 
@@ -95,7 +95,7 @@ It is not possible to create compile-time `for` or `while` loops. `goto` stateme
 
 The following aspect uses a `foreach` loop to print the value of each parameter of the method to which it is applied.
 
-[!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeForEach.cs?sample)]
+[!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeForEach.cs)]
 
 
 ### typeof, nameof expressions
@@ -142,7 +142,7 @@ It is not possible to build custom convertors at the moment.
 
 #### Example
 
-[!include[Dynamic](../../code/Caravela.Documentation.SampleCode.AspectFramework/ConvertToRunTime.cs?sample)]
+[!include[Dynamic](../../code/Caravela.Documentation.SampleCode.AspectFramework/ConvertToRunTime.cs)]
 
 (In the transformed code, the call to `Intrinsics.GetRuntimeTypeHandle` is transformed into a `typeof` later in the compilation process.)
 

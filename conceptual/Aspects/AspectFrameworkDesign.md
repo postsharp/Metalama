@@ -124,13 +124,13 @@ This feature is not yet implemented.
 
 Now that you know more about the design of the aspect framework, you can look at the implementation of the <xref:Caravela.Framework.Aspects.OverrideMethodAspect> abstract class. You can see that all this class is doing is to provide define an abstract method `OverrideMethod` and to add an advice to the target method where the template is the `OverrideMethod`.
 
-[!code-csharp[Main](../../code/Caravela.Documentation.SampleCode.AspectFramework/OverrideMethodAspect.cs#aspect)]
+[!include[Main](../../code/Caravela.Documentation.SampleCode.AspectFramework/OverrideMethodAspect.cs#aspect)]
 
 ### Example: an aspect targeting methods, fields and properties
 
 The following example shows a aspect that target methods, fields and properties with a single implementation class.
 
-[!include[Aspect Targeting Methods, Fields and Properties](../../code/Caravela.Documentation.SampleCode.AspectFramework/LogMethodAndProperty.cs?sample)]
+[!include[Aspect Targeting Methods, Fields and Properties](../../code/Caravela.Documentation.SampleCode.AspectFramework/LogMethodAndProperty.cs)]
 
 ## Code model versioning
 

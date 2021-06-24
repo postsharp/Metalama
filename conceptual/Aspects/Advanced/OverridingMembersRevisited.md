@@ -27,7 +27,7 @@ The following aspects wraps all instance methods with a `lock( this )` statement
 > [!NOTE]
 > In a production-ready implementation, you should not lock `this` but a private field. You can introduce this field as described in @introducing-members. A product-ready implementation should also wrap properties.
 
-[!include[Synchronized](../../../code/Caravela.Documentation.SampleCode.AspectFramework/Synchronized.cs?sample)]
+[!include[Synchronized](../../../code/Caravela.Documentation.SampleCode.AspectFramework/Synchronized.cs)]
 
 ## Overriding fields or properties
 
@@ -59,7 +59,7 @@ The property can have a setter, a getter, or both. If one accessor is not specif
 
 The following aspects overrides properties so that they are written to and read from the Windows registry.
 
-[!include[Registry Storage](../../../code/Caravela.Documentation.SampleCode.AspectFramework/RegistryStorage.cs?sample)]
+[!include[Registry Storage](../../../code/Caravela.Documentation.SampleCode.AspectFramework/RegistryStorage.cs)]
 
 ### Overriding with accessor templates
 

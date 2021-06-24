@@ -22,9 +22,10 @@
     "content": [
       {
         "files": [
-          "obj/api/**.yml",
-          "obj/api/index.md"
-        ]
+          "api/**.yml",
+          "api/index.md"
+        ],
+        "src": "obj"
       },
       {
         "files": [
