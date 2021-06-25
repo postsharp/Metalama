@@ -53,17 +53,21 @@ function BuildExtensions()
 function RunTests()
 {
     dotnet restore "..\code\Caravela.Documentation.SampleCode.sln"
+
+    if ($LASTEXITCODE -ne 0 ) { throw "dotnet restore failed." }
+
     dotnet test "..\code\Caravela.Documentation.SampleCode.sln"
 
-    if ($LASTEXITCODE -ne 0 ) { throw "docfx metadata failed." }
+    if ($LASTEXITCODE -ne 0 ) { throw "dotnet test failed." }
 }
 
 function BuildDoc()
 {
-    packages\docfx.console.2.58.0\tools\docfx.exe build
+ 
+   packages\docfx.console.2.58.0\tools\docfx.exe build
     
 
-    if ($LASTEXITCODE -ne 0 ) { throw "docfx build failed." }
+   if ($LASTEXITCODE -ne 0 ) { throw "docfx build failed." }
 }
 
 function Publish()

@@ -1,4 +1,4 @@
 {
-    "WriteFormattedHtml": true,
+    "WriteHtml": true,
     "AddHtmlTitles":  true
 }

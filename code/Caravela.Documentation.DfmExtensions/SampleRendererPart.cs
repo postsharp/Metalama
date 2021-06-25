@@ -17,6 +17,12 @@ namespace Caravela.Documentation.DfmExtensions
         
         public override string Name => nameof(SampleRendererPart);
 
+        static SampleRendererPart()
+        {
+           // Debugger.Launch();
+        }
+        
+
         public override bool Match(IMarkdownRenderer renderer, DfmIncludeBlockToken token, MarkdownBlockContext context)
         {
             return TryParseToken(token, out _);
@@ -121,10 +127,12 @@ namespace Caravela.Documentation.DfmExtensions
             var targetPathRelativeToProjectDir = GetRelativePath(projectDir, targetPath);
             var sourceDirectoryRelativeToGitDir = GetRelativePath(gitDirectory, Path.GetDirectoryName(targetPath));
 
-            var aspectHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "highlighted",
-                Path.ChangeExtension(targetPathRelativeToProjectDir, ".Aspect.t.html")));
-            var targetHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "highlighted",
-                Path.ChangeExtension(targetPathRelativeToProjectDir, ".t.html")));
+            var aspectHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "html",
+                Path.ChangeExtension(targetPathRelativeToProjectDir, ".Aspect.cs.html")));
+            var targetHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "html",
+                Path.ChangeExtension(targetPathRelativeToProjectDir, ".cs.html")));
+            var transformedHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "html",
+                Path.ChangeExtension(targetPathRelativeToProjectDir, ".out.html")));
 
             const string gitBranch = "release/0.3";
             const string gitHubProjectPath = "https://github.com/postsharp/Caravela/blob/" + gitBranch;
@@ -133,9 +141,9 @@ namespace Caravela.Documentation.DfmExtensions
             {
                 // Create the tab group with the aspect, target, and transformed code.
 
-                var targetSrc = File.ReadAllText(targetPath);
-                var aspectSrc = File.ReadAllText(aspectHtmlPath);
-                var transformedSrc = File.ReadAllText(transformedPath);
+                var targetHtml = File.ReadAllText(targetHtmlPath);
+                var aspectHtml = File.ReadAllText(aspectHtmlPath);
+                var transformedHtml = File.ReadAllText(transformedHtmlPath);
 
                 
 
@@ -157,10 +165,10 @@ namespace Caravela.Documentation.DfmExtensions
         ASPECT_CODE
     </div>
     <div id=""tabpanel_IDENTIFIER_target"">
-        <pre><code class=""lang-csharp"" name=""Target Code"">TARGET_CODE</code></pre>
+        TARGET_CODE
     </div>
     <div id=""tabpanel_IDENTIFIER_transformed"">
-        <pre><code class=""lang-csharp"" name=""Main"">TRANSFORMED_CODE</code></pre>
+        TRANSFORMED_CODE
     </div>
 </div>
 ";
@@ -169,9 +177,9 @@ namespace Caravela.Documentation.DfmExtensions
                                    shortFileNameWithoutExtension + ".Aspect.cs";
                 return template
                     .Replace("IDENTIFIER", Interlocked.Increment(ref nextId).ToString())
-                    .Replace("ASPECT_CODE", aspectSrc)
-                    .Replace("TARGET_CODE", HtmlEncode(targetSrc))
-                    .Replace("TRANSFORMED_CODE", HtmlEncode(transformedSrc))
+                    .Replace("ASPECT_CODE", aspectHtml)
+                    .Replace("TARGET_CODE", targetHtml)
+                    .Replace("TRANSFORMED_CODE", transformedHtml)
                     .Replace("GIT_URL",
                         gitUrl);
             }
