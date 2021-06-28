@@ -82,14 +82,11 @@ In the following example, the aspect prints a different string for static method
 
 If the expression of a `foreach` statement is a compile-time expression, the `foreach` statement will be interpreted at compile-time.
 
-It is not possible to create compile-time `for` or `while` loops. `goto` statements are forbidden in templates.
-
 > [!NOTE]
 > It is not allowed to have a compile-time `foreach` inside a block whose execution depends on a run-time condition, including:
 >
 > - a run-time `if`, `else`, `for`, `foreach`, `while`;
 > - a `catch` or `finally`.
-
 
 #### Example
 
@@ -97,6 +94,15 @@ The following aspect uses a `foreach` loop to print the value of each parameter 
 
 [!include[Compile-Time If](../../code/Caravela.Documentation.SampleCode.AspectFramework/CompileTimeForEach.cs)]
 
+### No compile-time for and while
+
+It is not possible to create compile-time `for` or `while` loops. `goto` statements are forbidden in templates. In these scenarios, you can try to replace the loop with the following construct:
+
+```cs
+foreach (int i in meta.CompileTime( Enumerable.Range( 0, n ) ))
+```
+
+If the approach above is not possible, you can try to move your logic to a compile-time aspect function (not a template method), have this function return an enumerable, and use the return value in a `foreach` loop in the template method.
 
 ### typeof, nameof expressions
 

@@ -16,7 +16,7 @@ Concretely, you can follow the following steps (detailed below):
    4. Copy the test output to a file named with the extension `.t.cs`, say `MyTest.t.cs`.
 
 
-> ![NOTE]
+> [!NOTE]
 > For a real-world example, see https://github.com/postsharp/Caravela.Samples. Sample aspects are tested using the approach described here.
 
 ## Step 1. Create an aspect test project with Caravela.TestFramework
