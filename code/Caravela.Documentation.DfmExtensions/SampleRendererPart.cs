@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -14,14 +13,14 @@ namespace Caravela.Documentation.DfmExtensions
         MarkdownBlockContext>
     {
         private static int nextId = 1;
-        
+
         public override string Name => nameof(SampleRendererPart);
 
         static SampleRendererPart()
         {
-           // Debugger.Launch();
+//            Debugger.Launch();
         }
-        
+
 
         public override bool Match(IMarkdownRenderer renderer, DfmIncludeBlockToken token, MarkdownBlockContext context)
         {
@@ -62,7 +61,6 @@ namespace Caravela.Documentation.DfmExtensions
         private static bool TryParseToken(DfmIncludeBlockToken token,
             out ( string FilePath, string Fragment, NameValueCollection Query ) parsed)
         {
-            
             var targetFileName = UriUtility.GetPath(token.Src);
             if (!targetFileName.EndsWith(".cs"))
             {
@@ -70,19 +68,16 @@ namespace Caravela.Documentation.DfmExtensions
                 return false;
             }
 
-            
 
             var parameters = new NameValueCollection();
 
             if (UriUtility.HasQueryString(token.Src))
-            {
                 foreach (var part in UriUtility.GetQueryString(token.Src).Split('&'))
                 {
                     var nameValuePair = part.Split('=');
-                    
+
                     parameters.Add(nameValuePair[0], nameValuePair.Length > 1 ? nameValuePair[1] : null);
                 }
-            }
 
             parsed = (targetFileName, UriUtility.GetFragment(token.Src), parameters);
 
@@ -145,7 +140,6 @@ namespace Caravela.Documentation.DfmExtensions
                 var aspectHtml = File.ReadAllText(aspectHtmlPath);
                 var transformedHtml = File.ReadAllText(transformedHtmlPath);
 
-                
 
                 var template = @"
 <div class=""see-on-github tabbed""><a href=""GIT_URL"">See on GitHub</a></div>
@@ -174,7 +168,7 @@ namespace Caravela.Documentation.DfmExtensions
 ";
 
                 var gitUrl = gitHubProjectPath + "/" + sourceDirectoryRelativeToGitDir + "/" +
-                                   shortFileNameWithoutExtension + ".Aspect.cs";
+                             shortFileNameWithoutExtension + ".Aspect.cs";
                 return template
                     .Replace("IDENTIFIER", Interlocked.Increment(ref nextId).ToString())
                     .Replace("ASPECT_CODE", aspectHtml)
@@ -186,11 +180,11 @@ namespace Caravela.Documentation.DfmExtensions
             else
             {
                 var gitUrl = gitHubProjectPath + "/" + sourceDirectoryRelativeToGitDir + "/" +
-                                   shortFileNameWithoutExtension + ".cs";
+                             shortFileNameWithoutExtension + ".cs";
 
                 var gitHubLink = @"<div class=""see-on-github""><a href=""GIT_URL"">See on GitHub</a></div>"
                     .Replace("GIT_URL", gitUrl);
-                
+
                 if (File.Exists(targetHtmlPath))
                 {
                     // Write the syntax-highlighted HTML instead.
@@ -200,15 +194,15 @@ namespace Caravela.Documentation.DfmExtensions
                 }
                 else
                 {
-                    return gitHubLink + 
-                        @"<pre><code class=""lang-csharp"" name=""NAME"">TARGET_CODE</code></pre>"
-                        .Replace("TARGET_CODE", File.ReadAllText(targetPath))
-                        .Replace("GIT_URL", gitUrl)
-                        .Replace("NAME", token.Name);
+                    return gitHubLink +
+                           @"<pre><code class=""lang-csharp"" name=""NAME"">TARGET_CODE</code></pre>"
+                               .Replace("TARGET_CODE", File.ReadAllText(targetPath))
+                               .Replace("GIT_URL", gitUrl)
+                               .Replace("NAME", token.Name);
                 }
             }
         }
-    
+
 
         private static string GetRelativePath(string projectDir, string targetPath)
         {

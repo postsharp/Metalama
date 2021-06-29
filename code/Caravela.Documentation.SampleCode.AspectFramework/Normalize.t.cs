@@ -12,7 +12,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
 
             set
             {
-                this.__Property__BackingField = value?.Trim().ToLowerInvariant();
+                this.Property = value?.Trim().ToLowerInvariant();
             }
         }
         private string __Property__BackingField;

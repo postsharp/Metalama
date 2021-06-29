@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
 {
-    class ManuuallyCloneable : ICloneable
+    class ManuallyCloneable : ICloneable
     {
         public object Clone()
         {
-            return new ManuuallyCloneable();
+            return new ManuallyCloneable();
         }
     }
 
@@ -19,7 +15,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
     {
         int a;
 
-        ManuuallyCloneable b;
+        ManuallyCloneable b;
 
         AutomaticallyCloneable c;
     }

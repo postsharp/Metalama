@@ -1,33 +1,32 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
 {
-    class NaturallyCloneable : ICloneable
+    class ManuallyCloneable : ICloneable
     {
         public object Clone()
         {
-            return new NaturallyCloneable();
+            return new ManuallyCloneable();
         }
     }
 
     [DeepClone]
-    class BaseClass
+    class AutomaticallyCloneable
 : ICloneable
     {
         int a;
-        NaturallyCloneable b;
+
+        ManuallyCloneable b;
+
+        AutomaticallyCloneable c;
 
 
-        public BaseClass Clone()
+        public AutomaticallyCloneable Clone()
         {
-            var clone = (BaseClass)null;
-            clone = (BaseClass)this.MemberwiseClone();
-            var clonedField = (NaturallyCloneable)((ICloneable)this.b.Clone());
-            clone.b = clonedField;
+            var clone = (AutomaticallyCloneable)null;
+            clone = (AutomaticallyCloneable)this.MemberwiseClone();
+            clone.b = (ManuallyCloneable)((ICloneable)this.b).Clone();
+            clone.c = (AutomaticallyCloneable)((ICloneable)this.c).Clone();
             return clone;
         }
 
@@ -37,20 +36,4 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
         }
     }
 
-    [DeepClone]
-    class DerivedClass : BaseClass
-    {
-        int c;
-        NaturallyCloneable d;
-
-
-        public override DerivedClass Clone()
-        {
-            var clone = (DerivedClass)null;
-            clone = (DerivedClass)this.MemberwiseClone();
-            var clonedField = (NaturallyCloneable)((ICloneable)this.d.Clone());
-            clone.d = clonedField;
-            return clone;
-        }
-    }
 }

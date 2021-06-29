@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="IntroducePropertyChanged1 - Copy.t.cs">
-      <DependentUpon>IntroducePropertyChanged1.t.cs</DependentUpon>
-    </None>
     <None Include="IntroducePropertyChanged2 - Copy.t.cs">
       <DependentUpon>IntroducePropertyChanged2.t.cs</DependentUpon>
     </None>
