@@ -3,9 +3,12 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Text;
 using System.Threading;
+using HtmlAgilityPack;
 using Microsoft.DocAsCode.Common;
 using Microsoft.DocAsCode.Dfm;
 using Microsoft.DocAsCode.MarkdownLite;
+using Newtonsoft.Json;
+using PKT.LZStringCSharp;
 
 namespace Caravela.Documentation.DfmExtensions
 {
@@ -18,7 +21,7 @@ namespace Caravela.Documentation.DfmExtensions
 
         static SampleRendererPart()
         {
-//            Debugger.Launch();
+            //System.Diagnostics.Debugger.Launch();
         }
 
 
@@ -131,6 +134,7 @@ namespace Caravela.Documentation.DfmExtensions
 
             const string gitBranch = "release/0.3";
             const string gitHubProjectPath = "https://github.com/postsharp/Caravela/blob/" + gitBranch;
+            const string tryBaseUrl = "https://try.postsharp.net/#";
 
             if (File.Exists(aspectPath))
             {
@@ -140,9 +144,24 @@ namespace Caravela.Documentation.DfmExtensions
                 var aspectHtml = File.ReadAllText(aspectHtmlPath);
                 var transformedHtml = File.ReadAllText(transformedHtmlPath);
 
+                string Html2Text(string html)
+                {
+                    HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                    doc.LoadHtml(html);
+                    return HtmlEntity.DeEntitize(doc.DocumentNode.SelectSingleNode("//pre").InnerText);
+                }
+
+                var gitUrl = gitHubProjectPath + "/" + sourceDirectoryRelativeToGitDir + "/" +
+                             shortFileNameWithoutExtension + ".Aspect.cs";
+
+                var targetCs = Html2Text(targetHtml);
+                var aspectCs = Html2Text(aspectHtml);
+                var tryPayloadJson = JsonConvert.SerializeObject(new { a = aspectCs, p = targetCs });
+                var tryPayloadHash = LZString.CompressToEncodedURIComponent(tryPayloadJson);
+                var tryUrl = tryBaseUrl + tryPayloadHash;
 
                 var template = @"
-<div class=""see-on-github tabbed""><a href=""GIT_URL"">See on GitHub</a></div>
+<div class=""see-on-github tabbed""><a href=""GIT_URL"">See on GitHub</a> | <a href=""TRY_URL"">Try Online</a></div>
 <div class=""tabGroup"">
     <ul>
         <li>
@@ -167,15 +186,13 @@ namespace Caravela.Documentation.DfmExtensions
 </div>
 ";
 
-                var gitUrl = gitHubProjectPath + "/" + sourceDirectoryRelativeToGitDir + "/" +
-                             shortFileNameWithoutExtension + ".Aspect.cs";
                 return template
                     .Replace("IDENTIFIER", Interlocked.Increment(ref nextId).ToString())
                     .Replace("ASPECT_CODE", aspectHtml)
                     .Replace("TARGET_CODE", targetHtml)
                     .Replace("TRANSFORMED_CODE", transformedHtml)
-                    .Replace("GIT_URL",
-                        gitUrl);
+                    .Replace("GIT_URL", gitUrl)
+                    .Replace("TRY_URL", tryUrl);
             }
             else
             {
