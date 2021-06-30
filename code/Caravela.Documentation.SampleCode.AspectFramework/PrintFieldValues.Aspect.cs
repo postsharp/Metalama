@@ -7,7 +7,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.PrintFieldValues
     {
         public override dynamic OverrideMethod()
         {
-            foreach (var fieldOrProperty in meta.NamedType.FieldsAndProperties)
+            foreach (var fieldOrProperty in meta.Type.FieldsAndProperties)
             {
                 if (fieldOrProperty.IsAutoPropertyOrField)
                 {

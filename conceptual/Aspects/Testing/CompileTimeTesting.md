@@ -55,7 +55,7 @@ Typically, the `csproj` project file of a compile-time test project would have t
 
 When you import the `Caravela.TestFramework` package in a project, the following happens:
 
-1. The `CaravelaEnabled` project property is set to `False`, which completely disables Caravela for the project.
+1. The `CaravelaEnabled` project property is set to `False`, which completely disables Caravela for the project. Therefore, the `CARAVELA` compilation symbol (usable in a directive like `#if CARAVELA`) is no longer defined.
   
 2. Expected test results (`*.t.cs`) are excluded from the compilation.
 
@@ -77,7 +77,7 @@ Every test includes:
 
 For instance, suppose that we are testing the following aspect. This file would typically be included in a class library project.
 
-[!include[Main](../../../code/Caravela.Documentation.SampleCode.AspectFramework/Testing.Aspect.cs)]
+[!include[Main](../../../code/Caravela.Documentation.SampleCode.AspectFramework/Testing.TheAspect.cs)]
 
 To test this aspect, we create a test file with the following content:
 
@@ -96,6 +96,24 @@ If you want to include in the test compilation other files than auxiliary files 
 ```
 
 The included file will behave just as an auxiliary file.
+
+### Including references to introduced members and interfaces
+
+Because Caravela is disabled at compile- and design-time for a test project, you will have difficulties referencing members that do not exist in your source code but have been introduced by an aspect. Since the IDE and the compiler do not know about Caravela, you will get errors complaining that these members do not exist.
+
+The solution is to add wrap the code accessing introduced members with a `#if CARAVELA` directive. Because the `CARAVELA` symbol is defined when the test framework is running, this code will be taken into account during these tests. However, because it is not defined at design- and compile-time, it this code will be ignored while editing and compiling.
+
+For instance, if the `Planet.Update` method is introduced by an aspect:
+
+```cs
+Planet p = new();
+#if CARAVELA
+p.Update( x, y );
+#endif
+Console.WriteLine( $"{p.X}, {p.Y}");
+```
+
+For details about member introductions, see @introducing-members.
 
 ## Step 3. Run the test case
 
@@ -175,7 +193,7 @@ To make the `.t.cs.` file appear under its parent `.cs` file:
             }
         }
     }
-    ```                
+    ```
 
 - In Rider:
     1. In Solution Explorer, click on the settings (wheel) icon in the Solution Explorer toolbar.

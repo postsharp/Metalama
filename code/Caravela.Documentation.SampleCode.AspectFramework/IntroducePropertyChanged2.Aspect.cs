@@ -10,14 +10,13 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.IntroducePropertyCha
         public void BuildAspect( IAspectBuilder<INamedType> builder )
         {
             var eventBuilder = builder.AdviceFactory.IntroduceEvent(
-                builder.TargetDeclaration, 
-                nameof(PropertyChanged), 
+                builder.TargetDeclaration,
                 nameof(PropertyChanged));
 
             builder.AdviceFactory.IntroduceMethod(
                 builder.TargetDeclaration,
                 nameof(OnPropertyChanged),
-                options: AdviceOptions.Default.AddTag("event", eventBuilder));
+                tags: new () {  ["event"] = eventBuilder });
         }
 
 

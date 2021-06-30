@@ -32,6 +32,8 @@ items:
           topicUid: implementing-interfaces
         - name: Sharing State With Advices
           topicUid: sharing-state-with-advices
+      - name: Ordering Aspects
+        topicUid: ordering-aspects
       - name: Debugging Aspects
         topicUid: debugging-aspects
       - name: Testing Aspects
@@ -47,8 +49,6 @@ items:
     items:
       - name: Applying Aspects to Code
         topicUid: applying-aspects
-      - name: Ordering Aspects
-        topicUid: ordering-aspects
       - name: Debugging Code With Aspects
         topicUid: debugging
 

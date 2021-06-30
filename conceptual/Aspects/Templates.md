@@ -29,7 +29,7 @@ The entry point of the compile-time API is the <xref:Caravela.Framework.Aspects.
 The <xref:Caravela.Framework.Aspects.meta> exposes to the following members:
 
 - <xref:Caravela.Framework.Aspects.meta.Proceed> invokes the method or accessor being intercepted -- it can be the next aspect or the source implementation.
-- <xref:Caravela.Framework.Aspects.meta.NamedType>, <xref:Caravela.Framework.Aspects.meta.Method>, <xref:Caravela.Framework.Aspects.meta.Property>, <xref:Caravela.Framework.Aspects.meta.Property>, ... gives access to the member to which the template is applied.
+- <xref:Caravela.Framework.Aspects.meta.Type>, <xref:Caravela.Framework.Aspects.meta.Method>, <xref:Caravela.Framework.Aspects.meta.Property>, <xref:Caravela.Framework.Aspects.meta.Property>, ... gives access to the member to which the template is applied.
 - <xref:Caravela.Framework.Aspects.meta.Parameters> gives access to the current method or accessor parameters.
 - <xref:Caravela.Framework.Aspects.meta.Diagnostics> allows your aspect to report or suppress diagnostics. See <xref:diagnostics> for details.
 - <xref:Caravela.Framework.Aspects.meta.This> represents the `this` instance. Together with <xref:Caravela.Framework.Aspects.meta.Base>, <xref:Caravela.Framework.Aspects.meta.ThisStatic> and <xref:Caravela.Framework.Aspects.meta.BaseStatic>, it allows your template to access members of the target class using dynamic code (see below).

@@ -17,7 +17,7 @@ The inconvenience of this method is that it is not very flexible. You cannot pas
 
 ## Sharing state with the Tags property
 
-If your `BuildAspect` method needs to pass to a template method some state that is specific to an advice instance, you can construct an instance of the @Caravela.Framework.Aspects.AdviceOptions class and assign all elements of state as tags_ in name-value dictionary. In the template method, the tags are available under the `meta.Tags` dictionary.
+If your `BuildAspect` method needs to pass to a template method some state that is specific to an advice instance, you can construct an instance of the @System.Collections.Generic.Dictionary{System.String,System.Object} class and assign all elements of state as tags_ in name-value dictionary. In the template method, the tags are available under the `meta.Tags` dictionary.
 
 ### Example
 

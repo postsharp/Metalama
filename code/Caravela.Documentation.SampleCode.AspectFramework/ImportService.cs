@@ -4,7 +4,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.ImportService
 {
     internal class TargetCode
     {
-        //readonly IServiceProvider _serviceProvider;
+        readonly IServiceProvider _serviceProvider;
 
         [ImportServiceAspect]
         private IFormatProvider FormatProvider { get; }

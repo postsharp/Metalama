@@ -12,7 +12,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
             var typedMethod = builder.AdviceFactory.IntroduceMethod(
                 builder.TargetDeclaration, 
                 nameof(CloneImpl),
-                conflictBehavior:ConflictBehavior.Override );
+                whenExists:OverrideStrategy.Override );
 
             typedMethod.Name = "Clone";
             typedMethod.ReturnType = builder.TargetDeclaration;
@@ -20,20 +20,20 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
             builder.AdviceFactory.ImplementInterface(
                 builder.TargetDeclaration, 
                 typeof(ICloneable),
-                conflictBehavior: ConflictBehavior.Ignore);
+                whenExists: OverrideStrategy.Ignore);
         }
 
         [Template(IsVirtual = true)]
         public virtual dynamic CloneImpl()
         {
             // Define a local variable of the same type as the target type.
-            var clone = meta.NamedType.DefaultValue();
+            var clone = meta.Type.DefaultValue();
 
             // TODO: access to meta.Method.Invokers.Base does not work.
             if ( meta.Method.Invokers.Base == null )
             {
                 // Invoke base.MemberwiseClone().
-                clone = meta.Cast( meta.NamedType,  meta.Base.MemberwiseClone() );
+                clone = meta.Cast( meta.Type,  meta.Base.MemberwiseClone() );
             }
             else
             {
@@ -43,7 +43,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
 
             // Select clonable fields.
             var clonableFields =
-                meta.NamedType.FieldsAndProperties.Where(
+                meta.Type.FieldsAndProperties.Where(
                     f => f.IsAutoPropertyOrField &&
                     (f.Type.Is(typeof(ICloneable)) || 
                     (f.Type is INamedType fieldNamedType && fieldNamedType.Aspects<DeepCloneAttribute>().Any())));

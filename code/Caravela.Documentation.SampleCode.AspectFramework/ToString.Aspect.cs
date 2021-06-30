@@ -10,16 +10,16 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.ToString
 {
     class ToStringAttribute : Attribute, IAspect<INamedType>
     {
-        [Introduce( ConflictBehavior = ConflictBehavior.Override, Name = "ToString" )]
+        [Introduce( WhenExists = OverrideStrategy.Override, Name = "ToString" )]
         public string IntroducedToString()
         {
             var formattingString = meta.CompileTime(new StringBuilder());
             formattingString.Append("{ ");
-            formattingString.Append(meta.NamedType.Name );
+            formattingString.Append(meta.Type.Name );
             formattingString.Append(" ");
 
             var i = meta.CompileTime(0);
-            var fields = meta.NamedType.FieldsAndProperties.Where( f => !f.IsStatic ).ToList();
+            var fields = meta.Type.FieldsAndProperties.Where( f => !f.IsStatic ).ToList();
 
             var values = new object[fields.Count];
             foreach ( var field in fields)

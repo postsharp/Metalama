@@ -28,7 +28,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.UpdateMethod
 
             foreach ( var parameter in meta.Parameters )
             {
-                var field = meta.NamedType.FieldsAndProperties.OfName(parameter.Name).Single();
+                var field = meta.Type.FieldsAndProperties.OfName(parameter.Name).Single();
 
                 field.Invokers.Final.SetValue(meta.This, meta.Parameters[index].Value);
                 index++;

@@ -1,4 +1,4 @@
-param ( [switch] $incremental = $false )
+param ( [switch] $incremental = $false, [switch] $pack = $false )
 
 $ErrorActionPreference = "Stop" 
 
@@ -99,6 +99,9 @@ else
 {
     Prepare
     BuildDoc
-    Pack
+}
 
+if ( $pack )
+{
+    Pack
 }

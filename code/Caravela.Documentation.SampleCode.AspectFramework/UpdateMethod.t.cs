@@ -3,7 +3,7 @@ using System;
 namespace Caravela.Documentation.SampleCode.AspectFramework.UpdateMethod
 {
     [UpdateMethod]
-    class TargetCode
+    class CityHunter
     {
         int x;
 
@@ -16,6 +16,15 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.UpdateMethod
         {
             this.x = x;
             this.Y = Y;
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            CityHunter ch = new();
+            ch.Update(0, "1", DateTime.Now);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Ordering
         private dynamic? Override()
         {
             Console.WriteLine("Executing Aspect1. Methods present before applying Aspect1: "
-                + string.Join(", ", meta.NamedType.Methods.Select(m => m.Name).ToArray()));
+                + string.Join(", ", meta.Type.Methods.Select(m => m.Name).ToArray()));
 
             return meta.Proceed();
         }
@@ -52,7 +52,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Ordering
         private dynamic? Override()
         {
             Console.WriteLine("Executing Aspect2. Methods present before applying Aspect2: "
-                + string.Join(", ", meta.NamedType.Methods.Select(m => m.Name).ToArray()));
+                + string.Join(", ", meta.Type.Methods.Select(m => m.Name).ToArray()));
 
             return meta.Proceed();
         }

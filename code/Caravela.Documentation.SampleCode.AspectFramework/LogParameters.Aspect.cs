@@ -45,7 +45,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogParameters
         private static string BuildFormattingString()
         {
             var stringBuilder = meta.CompileTime(new StringBuilder());
-            stringBuilder.Append(meta.NamedType.ToDisplayString());
+            stringBuilder.Append(meta.Type.ToDisplayString());
             stringBuilder.Append('.');
             stringBuilder.Append(meta.Method.Name);
             stringBuilder.Append('(');

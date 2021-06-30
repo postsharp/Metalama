@@ -10,7 +10,7 @@ In the section @simple-aspects, you have learned to override methods, properties
 
 ## Overriding methods
 
-To override one or more methods, your aspects needs to implement the <xref:Caravela.Framework.Aspects.IAspect%601.BuildAspect(Caravela.Framework.Aspects.IAspectBuilder{%600})> method, then call the <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideMethod(Caravela.Framework.Code.IMethod,System.String,Caravela.Framework.Aspects.AdviceOptions)> method exposed on `builder.AdviceFactory`.
+To override one or more methods, your aspects needs to implement the <xref:Caravela.Framework.Aspects.IAspect%601.BuildAspect(Caravela.Framework.Aspects.IAspectBuilder{%600})> method, then call the <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideMethod(Caravela.Framework.Code.IMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})> method exposed on `builder.AdviceFactory`.
 
 The _first argument_ of `OverrideMethod` is the @Caravela.Framework.Code.IMethod that you want to override. This method must be in the type being targeted by the current aspect instance.
 
@@ -47,7 +47,7 @@ There are two approaches to override a field or property: by providing a _proper
 
 This approach is the simplest but it has a few limitations.
 
-Just like for methods, to override one or more fields or properties, your aspects needs to implement the <xref:Caravela.Framework.Aspects.IAspect%601.BuildAspect(Caravela.Framework.Aspects.IAspectBuilder{%600})> method, then call the <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideFieldOrProperty(Caravela.Framework.Code.IFieldOrProperty,System.String,Caravela.Framework.Aspects.AdviceOptions)> method exposed on `builder.AdviceFactory`.
+Just like for methods, to override one or more fields or properties, your aspects needs to implement the <xref:Caravela.Framework.Aspects.IAspect%601.BuildAspect(Caravela.Framework.Aspects.IAspectBuilder{%600})> method, then call the <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideFieldOrProperty(Caravela.Framework.Code.IFieldOrProperty,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})> method exposed on `builder.AdviceFactory`.
 
 The _first argument_ of `OverrideFieldOrProperty` is the @Caravela.Framework.Code.IFieldOrProperty that you want to override. This field or property must be in the type being targeted by the current aspect instance.
 
@@ -92,7 +92,7 @@ Advising fields or properties with the `OverrideFieldOrProperty` has the followi
 * You cannot have an `async` or iterator getter template. (Not yet implemented in `OverrideFieldOrPropertyAccessors` anyway.)
 * You cannot have generic templates.  (Not yet implemented in `OverrideFieldOrPropertyAccessors` anyway.)
 
-To alleviate these limitations, you can use the method <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideFieldOrPropertyAccessors(Caravela.Framework.Code.IFieldOrProperty,System.String,System.String,Caravela.Framework.Aspects.AdviceOptions)> and provide one or two method templates: a getter template and/or a setter template.
+To alleviate these limitations, you can use the method <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideFieldOrPropertyAccessors(Caravela.Framework.Code.IFieldOrProperty,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})> and provide one or two method templates: a getter template and/or a setter template.
 
 The templates must fulfill the following conditions:
 
@@ -102,6 +102,6 @@ The templates must fulfill the following conditions:
 
 ## Overriding events
 
-Overriding events is possible using the <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideEventAccessors(Caravela.Framework.Code.IEvent,System.String,System.String,System.String,Caravela.Framework.Aspects.AdviceOptions)> method. It follows the same principles than `OverridePropertyAccessors`.
+Overriding events is possible using the <xref:Caravela.Framework.Aspects.IAdviceFactory.OverrideEventAccessors(Caravela.Framework.Code.IEvent,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})> method. It follows the same principles than `OverridePropertyAccessors`.
 
 It is possible to override the `add` and `remove` semantics of an event, but not yet the invocation of an event. Therefore, it is of little use and we are skipping the example.
