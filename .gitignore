@@ -18,3 +18,4 @@ x64/
 *.testlog
 .vs/
 
+docfx/log.txt

@@ -27,39 +27,45 @@ function Clean()
        rd "obj" -Recurse -Force
     }
 
+    if ( test-path "_site" ) {
+       rd "_site" -Recurse -Force
+    }
+
 }
 
 function Restore()
 {
 
     nuget restore -OutputDirectory packages
+
+    if ($LASTEXITCODE -ne 0 ) { exit }
 }
 
 function Metadata()
 {
 
-    packages\docfx.console.2.58.0\tools\docfx.exe metadata
+    packages\docfx.console.2.58.0\tools\docfx.exe metadata --property TargetFramework=netstandard2.0
 
-    if ($LASTEXITCODE -ne 0 ) { throw "docfx metadata failed." }
+    if ($LASTEXITCODE -ne 0 ) { exit }
 }
 
 function BuildExtensions()
 {
     dotnet build "..\code\Caravela.Documentation.DfmExtensions\Caravela.Documentation.DfmExtensions.csproj"
 
-    if ($LASTEXITCODE -ne 0 ) { throw "Building DfmExtensions failed." }
+    if ($LASTEXITCODE -ne 0 ) { exit }
 }
 
 function RunTests()
 {
     dotnet restore "..\code\Caravela.Documentation.SampleCode.sln"
 
-    if ($LASTEXITCODE -ne 0 ) { throw "dotnet restore failed." }
+    if ($LASTEXITCODE -ne 0 ) { exit }
 
     dotnet test "..\code\Caravela.Documentation.SampleCode.sln"
 
     # We tolerate failing tests for now.
-  #  if ($LASTEXITCODE -ne 0 ) { throw "dotnet test failed." }
+  #  if ($LASTEXITCODE -ne 0 ) { exit }
 }
 
 function BuildDoc()
@@ -67,8 +73,7 @@ function BuildDoc()
  
    packages\docfx.console.2.58.0\tools\docfx.exe build
     
-
-   if ($LASTEXITCODE -ne 0 ) { throw "docfx build failed." }
+   if ($LASTEXITCODE -ne 0 ) { exit }
 }
 
 function Pack()

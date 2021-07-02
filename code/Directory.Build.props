@@ -1,8 +1,6 @@
 <Project>
-	<Import Project="c:\src\Caravela\LocalBuildId.props"/>
+	<Import Project="..\Caravela\CaravelaVersion.props"/>
 	<PropertyGroup>
-		<CaravelaVersion>0.1.4-dev-GaelFraiteur-$(LocalBuildId)</CaravelaVersion>
-		<!--<CaravelaVersion>0.1.4-build-317</CaravelaVersion>-->
 		<RestoreAdditionalProjectSources>c:\src\Caravela\artifacts\bin\Debug</RestoreAdditionalProjectSources>
 	</PropertyGroup>
 

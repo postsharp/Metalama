@@ -62,7 +62,7 @@
     "template":[ 
       "default", 
       "packages/memberpage.2.58.0/content",
-      "C:/src/Caravela.Home/code/Caravela.Documentation.DfmExtensions/bin/Debug"],
+      "../code/Caravela.Documentation.DfmExtensions/bin/Debug"],
     "postProcessors": [],
     "markdownEngineName": "dfm",
     "noLangKeyword": false,
