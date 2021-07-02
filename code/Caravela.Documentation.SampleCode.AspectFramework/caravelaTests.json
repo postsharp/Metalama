@@ -1,4 +1,6 @@
 {
-    "WriteHtml": true,
-    "AddHtmlTitles":  true
+    "WriteInputHtml": true,
+    "WriteOutputHtml": true,
+    "FormatOutput":  true,
+    "AddHtmlTitles": true
 }

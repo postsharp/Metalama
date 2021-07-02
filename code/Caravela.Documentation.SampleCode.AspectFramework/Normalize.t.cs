@@ -7,7 +7,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
         {
             get
             {
-                return this.__Property__BackingField;
+                return this._property;
             }
 
             set
@@ -15,6 +15,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
                 this.Property = value?.Trim().ToLowerInvariant();
             }
         }
-        private string __Property__BackingField;
+
+        private string _property;
+
     }
 }

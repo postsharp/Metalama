@@ -1,3 +1,7 @@
+using System;
+using Caravela.Compiler;
+using Microsoft.Win32;
+
 namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
 {
     [RegistryStorage("Animals")]
@@ -7,11 +11,11 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
         {
             get
             {
-                var type = System.Type.GetTypeFromHandle(Compiler.Intrinsics.GetRuntimeTypeHandle("T:System.Int32"));
-                var value = Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Turtles", null);
+                var type = Type.GetTypeFromHandle(Intrinsics.GetRuntimeTypeHandle("T:System.Int32"));
+                var value = Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Turtles", null);
                 if (value != null)
                 {
-                    return (int)System.Convert.ChangeType(value, type);
+                    return (int)Convert.ChangeType(value, type);
                 }
                 else
                 {
@@ -21,22 +25,25 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
 
             set
             {
-                var stringValue = System.Convert.ToString(value);
-                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Turtles", stringValue);
+                var stringValue = Convert.ToString(value);
+                Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Turtles", stringValue);
                 int _;
-                this.__Turtles__BackingField = value;
+                this._turtles = value;
             }
         }
-        private int __Turtles__BackingField;
+
+        private int _turtles;
+
+
         public int Cats
         {
             get
             {
-                var type = System.Type.GetTypeFromHandle(Compiler.Intrinsics.GetRuntimeTypeHandle("T:System.Int32"));
-                var value = Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Cats", null);
+                var type = Type.GetTypeFromHandle(Intrinsics.GetRuntimeTypeHandle("T:System.Int32"));
+                var value = Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Cats", null);
                 if (value != null)
                 {
-                    return (int)System.Convert.ChangeType(value, type);
+                    return (int)Convert.ChangeType(value, type);
                 }
                 else
                 {
@@ -46,13 +53,16 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
 
             set
             {
-                var stringValue = System.Convert.ToString(value);
-                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Cats", stringValue);
+                var stringValue = Convert.ToString(value);
+                Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Cats", stringValue);
                 int _;
-                this.__Cats__BackingField = value;
+                this._cats = value;
             }
         }
-        private int __Cats__BackingField;
+
+        private int _cats;
+
+
         public int All => this.Turtles + this.Cats;
     }
 }

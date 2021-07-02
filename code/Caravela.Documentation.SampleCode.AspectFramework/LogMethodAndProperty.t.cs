@@ -1,3 +1,5 @@
+using System;
+
 namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
 {
     internal class TargetCode
@@ -5,14 +7,14 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
         [Log]
         public int Method(int a, int b)
         {
-            System.Console.WriteLine("Entering Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Method(int, int)");
+            Console.WriteLine("Entering Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Method(int, int)");
             try
             {
                 return a + b;
             }
             finally
             {
-                System.Console.WriteLine(" Leaving Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Method(int, int)");
+                Console.WriteLine(" Leaving Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Method(int, int)");
             }
         }
 
@@ -21,32 +23,37 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
         {
             get
             {
-                return this.__Property__BackingField;
+                return this._property;
             }
 
             set
             {
-                System.Console.WriteLine("Assigning Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Property.set");
+                Console.WriteLine("Assigning Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Property.set");
                 int _;
-                this.__Property__BackingField = value;
+                this._property = value;
             }
         }
-        private int __Property__BackingField;
+
+        private int _property;
+
+
         [Log]
         public string Field
         {
             get
             {
-                return this.__Field__BackingField;
+                return this._field;
             }
 
             set
             {
-                System.Console.WriteLine("Assigning Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Field.set");
+                Console.WriteLine("Assigning Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Field.set");
                 string _;
-                this.__Field__BackingField = value;
+                this._field = value;
             }
         }
-        private string __Field__BackingField;
+
+        private string _field;
+
     }
 }

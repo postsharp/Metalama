@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace Caravela.Documentation.SampleCode.AspectFramework.Retry
 {
@@ -17,7 +18,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Retry
                 catch (Exception e) when (i < 5)
                 {
                     Console.WriteLine($"{e.Message}. Retrying in 100 ms.");
-                    System.Threading.Thread.Sleep(100);
+                    Thread.Sleep(100);
                 }
             }
         }
@@ -35,7 +36,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Retry
                 catch (Exception e) when (i < 10)
                 {
                     Console.WriteLine($"{e.Message}. Retrying in 100 ms.");
-                    System.Threading.Thread.Sleep(100);
+                    Thread.Sleep(100);
                 }
             }
         }
