@@ -161,7 +161,7 @@ namespace Caravela.Documentation.DfmExtensions
                 var tryUrl = tryBaseUrl + tryPayloadHash;
 
                 var template = @"
-<div class=""see-on-github tabbed""><a href=""GIT_URL"">See on GitHub</a> | <a href=""TRY_URL"">Try Online</a></div>
+<div class=""sample-links tabbed""><a class=""github"" href=""GIT_URL"">See on GitHub</a> | <a class=""try"" href=""TRY_URL"">Try Online</a></div>
 <div class=""tabGroup"">
     <ul>
         <li>
@@ -199,7 +199,7 @@ namespace Caravela.Documentation.DfmExtensions
                 var gitUrl = gitHubProjectPath + "/" + sourceDirectoryRelativeToGitDir + "/" +
                              shortFileNameWithoutExtension + ".cs";
 
-                var gitHubLink = @"<div class=""see-on-github""><a href=""GIT_URL"">See on GitHub</a></div>"
+                var gitHubLink = @"<div class=""sample-links""><a class=""github"" href=""GIT_URL"">See on GitHub</a></div>"
                     .Replace("GIT_URL", gitUrl);
 
                 if (File.Exists(targetHtmlPath))

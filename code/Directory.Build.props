@@ -1,5 +1,5 @@
 <Project>
-	<Import Project="..\Caravela\CaravelaVersion.props"/>
+	<Import Project="..\..\Caravela\CaravelaVersion.props"/>
 	<PropertyGroup>
 		<RestoreAdditionalProjectSources>c:\src\Caravela\artifacts\bin\Debug</RestoreAdditionalProjectSources>
 	</PropertyGroup>
