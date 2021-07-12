@@ -6,7 +6,7 @@
                 "add": {
                     ".t.cs": [ ".cs" ],
                     ".Aspect.cs": [ ".cs" ],
-                    ".t.html": [ ".cs" ]
+                    ".cs.html": [ ".cs" ]
                 }
             }
         }

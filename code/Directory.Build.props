@@ -1,7 +1,6 @@
 <Project>
-	<Import Project="..\..\Caravela\CaravelaVersion.props"/>
+	<Import Project="..\..\Caravela\CaravelaVersion.props" Condition="Exists('.local')"/>
 	<PropertyGroup>
-		<RestoreAdditionalProjectSources>c:\src\Caravela\artifacts\bin\Debug</RestoreAdditionalProjectSources>
+		<CaravelaVersion Condition="'$(CaravelaVersion)'==''">0.3.2-preview</CaravelaVersion>
 	</PropertyGroup>
-
 </Project>
