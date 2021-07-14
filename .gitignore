@@ -19,3 +19,4 @@ x64/
 .vs/
 
 docfx/log.txt
+code/.local

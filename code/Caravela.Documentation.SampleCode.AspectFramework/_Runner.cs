@@ -1,4 +1,5 @@
-﻿using Caravela.TestFramework;
+﻿using System.Threading.Tasks;
+using Caravela.TestFramework;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -10,6 +11,6 @@ namespace Caravela.Documentation.SampleCode.CompileTimeTesting
 
         
         [Theory, CurrentDirectory]
-        public void Test(string f) => this.RunTest(f);
+        public Task Test(string f) => this.RunTestAsync(f);
     }
 }
