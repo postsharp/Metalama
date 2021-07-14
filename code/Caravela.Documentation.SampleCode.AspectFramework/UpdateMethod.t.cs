@@ -24,7 +24,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.UpdateMethod
         static void Main()
         {
             CityHunter ch = new();
-            ch.Update(0, "1", DateTime.Now);
+            ch.Update(0, "1");
         }
     }
 }

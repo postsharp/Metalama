@@ -14,7 +14,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.PrintFieldValues
         {
             var value = this.a;
             Console.WriteLine($"a={value}");
-            var value_1 = TargetCode.c;
+            var value_1 = c;
             Console.WriteLine($"c={value_1}");
             var value_2 = this.B;
             Console.WriteLine($"B={value_2}");

@@ -14,7 +14,6 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Ordering
             Console.WriteLine("Method defined in source code.");
             goto __aspect_return_1;
         __aspect_return_1:
-            ;
             return;
         }
 

@@ -38,7 +38,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
             set
             {
                 Console.WriteLine("Assigning " + meta.Method.ToDisplayString());
-                var _ = meta.Proceed();
+                meta.Proceed();
             }
         }
     }

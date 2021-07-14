@@ -17,7 +17,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
                 Console.WriteLine(" Leaving Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Method(int, int)");
             }
         }
-
+        private int _property;
         [Log]
         public int Property
         {
@@ -29,14 +29,10 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
             set
             {
                 Console.WriteLine("Assigning Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Property.set");
-                int _;
                 this._property = value;
             }
         }
-
-        private int _property;
-
-
+        private string _field;
         [Log]
         public string Field
         {
@@ -48,12 +44,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
             set
             {
                 Console.WriteLine("Assigning Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty.TargetCode.Field.set");
-                string _;
                 this._field = value;
             }
         }
-
-        private string _field;
-
     }
 }

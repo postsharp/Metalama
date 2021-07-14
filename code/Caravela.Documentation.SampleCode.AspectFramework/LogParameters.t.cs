@@ -1,5 +1,4 @@
 using System;
-using Caravela.Framework.Aspects;
 
 namespace Caravela.Documentation.SampleCode.AspectFramework.LogParameters
 {
@@ -12,8 +11,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogParameters
             Console.WriteLine("Caravela.Documentation.SampleCode.AspectFramework.LogParameters.TargetCode.VoidMethod(a = {0}, b = <out> ) started", arguments);
             try
             {
-                __Void result;
                 b = a;
+                object result = null;
                 Console.WriteLine(string.Format("Caravela.Documentation.SampleCode.AspectFramework.LogParameters.TargetCode.VoidMethod(a = {0}, b = <out> )", arguments) + " returned " + result);
                 return;
             }
@@ -33,6 +32,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogParameters
             {
                 int result;
                 result = a;
+                goto __aspect_return_1;
+            __aspect_return_1:
                 Console.WriteLine(string.Format("Caravela.Documentation.SampleCode.AspectFramework.LogParameters.TargetCode.IntMethod(a = {0})", arguments) + " succeeded");
                 return (int)result;
             }

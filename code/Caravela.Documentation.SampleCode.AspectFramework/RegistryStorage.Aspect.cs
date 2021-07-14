@@ -45,7 +45,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
             {
                 var stringValue = Convert.ToString(value);
                 Registry.SetValue(this.Key, meta.FieldOrProperty.Name, stringValue);
-                var _ = meta.Proceed();
+                meta.Proceed();
             }
         }
     }

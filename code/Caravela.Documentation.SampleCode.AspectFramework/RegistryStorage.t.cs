@@ -7,7 +7,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
     [RegistryStorage("Animals")]
     class Animals
     {
-        public int Turtles
+        private int _turtles; public int Turtles
         {
             get
             {
@@ -27,14 +27,10 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
             {
                 var stringValue = Convert.ToString(value);
                 Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Turtles", stringValue);
-                int _;
                 this._turtles = value;
             }
         }
-
-        private int _turtles;
-
-
+        private int _cats;
         public int Cats
         {
             get
@@ -55,13 +51,9 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
             {
                 var stringValue = Convert.ToString(value);
                 Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Company\\Product\\Animals", "Cats", stringValue);
-                int _;
                 this._cats = value;
             }
         }
-
-        private int _cats;
-
 
         public int All => this.Turtles + this.Cats;
     }
