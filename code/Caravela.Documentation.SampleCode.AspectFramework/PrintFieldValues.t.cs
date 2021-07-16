@@ -12,11 +12,11 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.PrintFieldValues
         [PrintFieldValues]
         public void Method()
         {
-            var value = this.a;
+            var value = a;
             Console.WriteLine($"a={value}");
             var value_1 = c;
             Console.WriteLine($"c={value_1}");
-            var value_2 = this.B;
+            var value_2 = B;
             Console.WriteLine($"B={value_2}");
             return;
         }

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Linq.Expressions;
-using System.Reflection.Emit;
 using Caravela.Framework.Aspects;
 using Caravela.Framework.Code;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
 {

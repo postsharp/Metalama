@@ -7,7 +7,10 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
     [RegistryStorage("Animals")]
     class Animals
     {
-        private int _turtles; public int Turtles
+
+        private int _turtles;
+
+        public int Turtles
         {
             get
             {
@@ -30,7 +33,10 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
                 this._turtles = value;
             }
         }
+
         private int _cats;
+
+
         public int Cats
         {
             get

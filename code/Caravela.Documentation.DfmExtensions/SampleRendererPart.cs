@@ -130,7 +130,7 @@ namespace Caravela.Documentation.DfmExtensions
             var targetHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "html",
                 Path.ChangeExtension(targetPathRelativeToProjectDir, ".cs.html")));
             var transformedHtmlPath = Path.GetFullPath(Path.Combine(projectDir, "obj", "html",
-                Path.ChangeExtension(targetPathRelativeToProjectDir, ".out.html")));
+                Path.ChangeExtension(targetPathRelativeToProjectDir, ".out.cs.html")));
 
             const string gitBranch = "release/0.3";
             const string gitHubProjectPath = "https://github.com/postsharp/Caravela/blob/" + gitBranch;
@@ -146,7 +146,7 @@ namespace Caravela.Documentation.DfmExtensions
 
                 string Html2Text(string html)
                 {
-                    HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                    HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
                     doc.LoadHtml(html);
                     return HtmlEntity.DeEntitize(doc.DocumentNode.SelectSingleNode("//pre").InnerText);
                 }

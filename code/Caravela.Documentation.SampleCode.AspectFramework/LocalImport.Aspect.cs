@@ -6,7 +6,7 @@ using Caravela.Framework.Diagnostics;
 
 namespace Caravela.Documentation.SampleCode.AspectFramework.ImportService
 {
-    internal class ImportServiceAspect : OverrideFieldOrPropertyAspect
+    internal class ImportAspect : OverrideFieldOrPropertyAspect
     {
         private static readonly DiagnosticDefinition<INamedType> _serviceProviderFieldMissing = new(
              "MY001",

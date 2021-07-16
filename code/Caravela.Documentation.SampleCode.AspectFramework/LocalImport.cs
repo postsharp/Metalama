@@ -6,7 +6,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.ImportService
     {
        // readonly IServiceProvider _serviceProvider;
 
-        [ImportServiceAspect]
+        [ImportAspect]
         private IFormatProvider FormatProvider { get; }
 
         public string Format(object? o)

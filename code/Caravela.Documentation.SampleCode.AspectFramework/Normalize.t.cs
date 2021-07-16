@@ -2,8 +2,24 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
 {
     class TargetCode
     {
-        private string _property;[Normalize]
+
+        private string _property;
+
+        [Normalize]
         public string Property
+        {
+            get
+            {
+                return this.__Property__OriginalImpl;
+            }
+
+            set
+            {
+                this.__Property__OriginalImpl = value?.Trim().ToLowerInvariant();
+            }
+        }
+
+        private string __Property__OriginalImpl
         {
             get
             {
@@ -12,7 +28,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
 
             set
             {
-                this.Property = value?.Trim().ToLowerInvariant();
+                this._property = value;
             }
         }
     }

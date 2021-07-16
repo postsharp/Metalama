@@ -7,7 +7,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.CompileTimeIf
         [CompileTimeIf]
         public void InstanceMethod()
         {
-            Console.WriteLine($"Invoking Caravela.Documentation.SampleCode.AspectFramework.CompileTimeIf.TargetCode.InstanceMethod() on instance {this.ToString()}.");
+            Console.WriteLine($"Invoking Caravela.Documentation.SampleCode.AspectFramework.CompileTimeIf.TargetCode.InstanceMethod() on instance {base.ToString()}.");
             Console.WriteLine("InstanceMethod");
             return;
         }
