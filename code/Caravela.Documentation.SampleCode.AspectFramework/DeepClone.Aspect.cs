@@ -50,9 +50,25 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.DeepClone
 
             foreach ( var field in clonableFields )
             {
-                field.Invokers.Base.SetValue(
-                    clone, 
-                    meta.Cast(field.Type, ((ICloneable)field.Invokers.Base.GetValue(meta.This)).Clone()));
+                // Check if we have a public method 'Clone()'.
+                var fieldType = (INamedType)field.Type;
+                var cloneMethod = fieldType.Methods.OfExactSignature("Clone", 0, Array.Empty<IType>());
+
+                if ( (cloneMethod != null && cloneMethod.Accessibility == Accessibility.Public) || fieldType.Aspects<DeepCloneAttribute>().Any() )
+                {
+                    // If yes, call the method without a cast.
+                    field.Invokers.Base.SetValue( 
+                        clone,
+                        meta.Cast(fieldType, field.Invokers.Base.GetValue(meta.This).Clone()) );
+
+                }
+                else
+                {
+                    // If no, use the interface.
+                    field.Invokers.Base.SetValue(
+                        clone,
+                        meta.Cast(fieldType, ((ICloneable)field.Invokers.Base.GetValue(meta.This)).Clone()));
+                }
             }
 
             return clone;
