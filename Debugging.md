@@ -6,5 +6,6 @@ When debugging code that uses Caravela, by default, the debugger only shows you 
 
 | Property Name  | Description
 | ---------------|--------------
-| `CaravelaEmitCompilerTransformedFiles` | Setting this property to `True` means that the transformed code will be written to disk, to the `obj/$Configuration/$Framework/transformed` directory (e.g. `obj/Debug/net5.0/transformed`).
-|  `CaravelaDebugTransformedCode` | Setting this property to `True` means transformed code will be used when debugging and when producing errors and warnings.
+| `CaravelaEmitCompilerTransformedFiles` | Set this property to `True` to write the transformed code to disk, to the `obj/$Configuration/$Framework/transformed` directory (e.g. `obj/Debug/net5.0/transformed`).
+|  `CaravelaDebugTransformedCode` | Set this property to `True` to compile the transformed code with debugging symbols.
+| `DebugCaravela` | Set this property to `True` to attach the debugger to the compiler process.
