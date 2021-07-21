@@ -1,3 +1,7 @@
+---
+uid: sdk
+---
+
 # Caravela.Framework.Sdk
 
 ## Introduction

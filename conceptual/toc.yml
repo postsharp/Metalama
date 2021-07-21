@@ -1,12 +1,13 @@
 items:
 - name: Conceptual Documentation
-  href: Conceptual.md
+  topicUid: conceptual
   items:
-
-  - name: Building Aspects
-    href: Aspects/Aspects.md
+  - name: Creating Aspects
+    topicUid: aspects
     items:
-      - name: Getting Started With the Simplified API
+      - name: Adding Caravela To Your Project
+        topicUid: installing
+      - name: Creating Simple Aspects
         topicUid: simple-aspects
         items:
         - name: Overriding Methods
@@ -43,7 +44,10 @@ items:
           topicUid: compile-time-testing        
         - name: Run-Time Testing
           topicUid: run-time-testing
-
+      - name: Creating a Live Template
+        topicUid: creating-live-template
+      - name: Caravela.Framework.Sdk
+        href: Sdk/Sdk.md
   - name: Using Aspects
     topicUid: using-aspects
     items:
@@ -51,11 +55,7 @@ items:
         topicUid: applying-aspects
       - name: Debugging Code With Aspects
         topicUid: debugging
-
-
-
-
-  - name: Caravela.Framework.Sdk
-    href: Sdk/Sdk.md
+  - name: Using Live Templates
+    topicUid: applying-live-templates
 
  

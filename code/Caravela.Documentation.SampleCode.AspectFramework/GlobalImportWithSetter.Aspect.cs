@@ -20,17 +20,13 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.GlobalImportWithSett
                             ServiceLocator.ServiceProvider.GetService(meta.Property.Type.ToType()));
 
                     // Set the field or property to the new value.
-                    // Bug 28881: this will call the property setter instead of setting the backing field.
                     meta.FieldOrProperty.Value = service;
                 }
 
                 return service;
             }
 
-            set
-            {
-                throw new NotSupportedException();
-            }
+            set => throw new NotSupportedException();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.GlobalImport
     {
         public override dynamic OverrideProperty
         {
-            get => ServiceLocator.ServiceProvider.GetService(meta.Property.Type.ToType());
+            get => ServiceLocator.ServiceProvider.GetService(meta.FieldOrProperty.Type.ToType());
 
             set => meta.Proceed();
         }

@@ -11,6 +11,8 @@ an algorithm and therefore implemented as an aspect.
 To create an aspect, create a class that derives from @"System.Attribute" and implement the 
 @"Caravela.Framework.Aspects.IAspect`1" interface.
 
+For more information, see <xref:aspects>.
+
 ### Class Diagrams
 
 #### Aspect builders

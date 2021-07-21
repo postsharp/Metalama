@@ -2,7 +2,7 @@
 uid: simple-aspects
 ---
 
-# Getting Started With the Simplified API
+# Creating Simple Aspects
 
 The simplified API exposes the most frequently-used features in a familiar object-oriented API.
 

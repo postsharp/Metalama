@@ -38,8 +38,9 @@
     "resource": [
       {
         "files": [
-          "images/**"
-        ]
+          "**.png"
+        ],
+        "src": "../conceptual"
       }
     ],
     "overwrite": [

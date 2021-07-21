@@ -3,33 +3,27 @@ uid: overriding-methods
 ---
 # Overriding Methods
 
-You can override the hand-written body of a method with code automatically-generated code thanks to the @"Caravela.Framework.Aspects.OverrideMethodAspect" abstract class. This is the simplest and most common aspect.
+The simplest and most common aspect is to wrap the hand-written body of a method with some automatically-generated code, but without modifying the method body itself. 
+
+You can achieve this thanks to the @"Caravela.Framework.Aspects.OverrideMethodAspect" abstract class. @"Caravela.Framework.Aspects.OverrideMethodAspect" is the aspect-oriented implementation of the [decorator design pattern](https://en.wikipedia.org/wiki/Decorator_pattern) for methods.
 
 ## Creating an OverrideMethod aspect
 
-1. Add the `Caravela.Framework` package to your project:
+1. Create a new class derived from the @"Caravela.Framework.Aspects.OverrideMethodAspect" abstract class. This class will be a custom attribute, so it is a good idea to name it with the `Attribute` suffix.
 
-    ```xml
-    <ProjectReference Include="Caravela.Framework" Version="TODO"/>
-    ```
-
-2. Import the @"Caravela.Framework.Aspects" namespace.
-
-3. Create a new class derived from the @"Caravela.Framework.Aspects.OverrideMethodAspect" abstract class. This class will be a custom attribute, so it is a good idea to name it with the `Attribute` suffix.
-
-4. Implement the @"Caravela.Framework.Aspects.OverrideMethodAspect.OverrideMethod" method in plain C#:
+2. Implement the @"Caravela.Framework.Aspects.OverrideMethodAspect.OverrideMethod" method in plain C#:
    - To insert code or expressions that depend on the target method of the aspect (such as the method name or the parameter type), use the @"Caravela.Framework.Aspects.meta" API.
-   - Where the original implementation must be invoked, call the <xref:Caravela.Framework.Aspects.meta.Parameters?text=meta.Proceed> method.
+   - Where the original implementation must be invoked, call the <xref:Caravela.Framework.Aspects.meta.Proceed?text=meta.Proceed> method.
 
-5. The aspect is a custom attribute. To transform a method using the aspect, just add the aspect custom attribute to the method.
+3. The aspect is a custom attribute. To transform a method using the aspect, just add the aspect custom attribute to the method.
 
-## Example: an empty OverrideMethod aspect
+### Example: an empty OverrideMethod aspect
 
 The following code shows an empty @"Caravela.Framework.Aspects.OverrideMethodAspect", which does not do anything:
 
 [!include[Empty OverrideMethodAttribute](../../../code/Caravela.Documentation.SampleCode.AspectFramework/EmptyOverrideMethodAttribute.cs)]
 
-## Accessing method metadata and parameters
+## Accessing the metadata and parameters of the overridden method
 
 The metadata of the method being overridden are available from the template method on the <xref:Caravela.Framework.Aspects.meta.Method?text=meta.Method> property . This property gives you all information about the name, type, parameters and custom attributes of the method. For instance, the metadata of method parameters are exposed on `meta.Method.Parameters`. But note that only _metadata_ are exposed there.
 
@@ -39,7 +33,7 @@ To access the parameter _values_, you need to access <xref:Caravela.Framework.As
 - `meta.Parameters.Values.ToArray()` creates an `object[]` array with all parameter values,
 - `meta.Parameters["a"].Value = 5` sets the `a` parameter to `5`.
 
-## Example: simple logging
+### Example: simple logging
 
 The following code writes a message to the system console before and after the method execution. The text includes the name of the target method.
 

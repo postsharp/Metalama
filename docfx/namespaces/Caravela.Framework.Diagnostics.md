@@ -17,3 +17,5 @@ To suppress of diagnostic, you must first define it as a static field of type @"
 You can then suppress a diagnostic from any declaration from an aspect using the 
 @"Caravela.Framework.Diagnostics.IDiagnosticSink.Suppress(Caravela.Framework.Code.IDeclaration,Caravela.Framework.Diagnostics.SuppressionDefinition)"
 method.
+
+For more information, see <xref:diagnostics>.
