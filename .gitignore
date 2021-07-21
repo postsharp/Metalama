@@ -1,0 +1,22 @@
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+*.nupkg
+
+
+
+*.log
+*.testlog
+.vs/
+
+docfx/log.txt
+code/.local

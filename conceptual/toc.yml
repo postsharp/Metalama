@@ -1,0 +1,61 @@
+items:
+- name: Conceptual Documentation
+  topicUid: conceptual
+  items:
+  - name: Creating Aspects
+    topicUid: aspects
+    items:
+      - name: Adding Caravela To Your Project
+        topicUid: installing
+      - name: Creating Simple Aspects
+        topicUid: simple-aspects
+        items:
+        - name: Overriding Methods
+          topicUid: overriding-methods
+        - name: Overriding Fields or Properties
+          topicUid: overriding-fields-or-properties
+        - name: Overriding Events
+          topicUid: overriding-events
+      - name: Design of Caravela Aspect Framework
+        topicUid: aspect-framework-design
+      - name: Caravela Template Language
+        topicUid: templates
+      - name: Reporting and Suppressing Diagnostics
+        topicUid: diagnostics
+      - name: Advising Code
+        topicUid: advising-code
+        items:
+        - name: "Overriding Members: Reloaded"
+          topicUid: overriding-members
+        - name: Introducing Members
+          topicUid: introducing-members
+        - name: Implementing Interfaces
+          topicUid: implementing-interfaces
+        - name: Sharing State With Advices
+          topicUid: sharing-state-with-advices
+      - name: Ordering Aspects
+        topicUid: ordering-aspects
+      - name: Debugging Aspects
+        topicUid: debugging-aspects
+      - name: Testing Aspects
+        topicUid: testing
+        items:
+        - name: Compile-Time Testing
+          topicUid: compile-time-testing        
+        - name: Run-Time Testing
+          topicUid: run-time-testing
+      - name: Creating a Live Template
+        topicUid: creating-live-template
+      - name: Caravela.Framework.Sdk
+        href: Sdk/Sdk.md
+  - name: Using Aspects
+    topicUid: using-aspects
+    items:
+      - name: Applying Aspects to Code
+        topicUid: applying-aspects
+      - name: Debugging Code With Aspects
+        topicUid: debugging
+  - name: Using Live Templates
+    topicUid: applying-live-templates
+
+ 

@@ -1,14 +1,8 @@
+---
+uid: sdk
+---
+
 # Caravela.Framework.Sdk
-
-## Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Maturity](#maturity)
-- [Implementing an aspect](#implementing-an-aspect)
-- [Packaging your aspect with its weaver](#packaging-your-aspect-with-its-weaver)
-- [Examples](#examples)
-
 
 ## Introduction
 

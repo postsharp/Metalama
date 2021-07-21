@@ -1,9 +1,0 @@
-- name: Conceptual Documentation
-  href: README.md
-  items:
-  - name: Caravela Framework
-    href: Caravela.Framework.md
-  - name: Caravela.Framework.Sdk
-    href: Caravela.Framework.Sdk.md
-  - name: Debugging
-    href: Debugging.md
