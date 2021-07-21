@@ -8,8 +8,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
     class Animals
     {
 
-        private int _turtles;
 
+        private int _turtles;
         public int Turtles
         {
             get
@@ -34,8 +34,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.RegistryStorage
             }
         }
 
-        private int _cats;
 
+        private int _cats;
 
         public int Cats
         {

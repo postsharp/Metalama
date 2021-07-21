@@ -3,8 +3,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.Normalize
     class TargetCode
     {
 
-        private string _property;
 
+        private string _property;
         [Normalize]
         public string Property
         {

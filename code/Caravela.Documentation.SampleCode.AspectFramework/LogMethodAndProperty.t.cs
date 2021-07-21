@@ -18,8 +18,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
             }
         }
 
-        private int _property;
 
+        private int _property;
 
         [Log]
         public int Property
@@ -36,8 +36,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.LogMethodAndProperty
             }
         }
 
-        private string _field;
 
+        private string _field;
 
         [Log]
         public string Field

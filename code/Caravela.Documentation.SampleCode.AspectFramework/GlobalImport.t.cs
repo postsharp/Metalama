@@ -7,8 +7,8 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.GlobalImport
     class TargetCode
     {
 
-        private IFormatProvider _formatProvider;
 
+        private IFormatProvider _formatProvider;
         [Import]
         IFormatProvider FormatProvider
         {
