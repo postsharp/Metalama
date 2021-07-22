@@ -22,4 +22,5 @@ jobs:
     - name: Build
       shell: pwsh
       run: |
-        ./docfx/build.ps1 -NoKill
+        ./build.ps1 -NoKill
+        if (!$?) {Throw "The script has failed." }
