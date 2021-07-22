@@ -4,6 +4,8 @@
 
 > You can try PostSharp "Caravela" in your browser, without installing anything, at <https://try.postsharp.net/>.
 
+This is the home repo for PostSharp "Caravela", a Roslyn-based meta-programming framework C# with focus on aspect-oriented programmning, code generation and code validation. We use this repo for discussions.
+
 ## Table of contents
 
 - [PostSharp "Caravela"](#postsharp-caravela)
