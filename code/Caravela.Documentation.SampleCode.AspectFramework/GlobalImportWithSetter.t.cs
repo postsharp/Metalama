@@ -8,7 +8,7 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.GlobalImportWithSett
     {
 
 
-        private IFormatProvider __formatProvider1;
+        private IFormatProvider _formatProvider1;
         [Import]
         IFormatProvider _formatProvider
         {
@@ -34,12 +34,12 @@ namespace Caravela.Documentation.SampleCode.AspectFramework.GlobalImportWithSett
         {
             get
             {
-                return this.__formatProvider1;
+                return this._formatProvider1;
             }
 
             set
             {
-                this.__formatProvider1 = value;
+                this._formatProvider1 = value;
             }
         }
     }
