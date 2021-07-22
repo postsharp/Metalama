@@ -1,4 +1,4 @@
-name: Full Pipeline
+name: Build
 
 on:
   push:
