@@ -8,19 +8,19 @@ uid: applying-live-templates
 > This scenario is in early preview. 
 > It requires __Visual Studio 2019__ and does not seem to work in other IDEs.
 
-To apply an aspect to your source code at design time:
+## Step 1. Add a project or package reference.
 
-1. Add the aspect library to your project using a `<ProjectReference>` or a `<PackageReference>`. This step is required to have the aspect registered under the refactoring menu. You can remove the reference after the operation if needed.
+Add the aspect library to your project using a `<ProjectReference>` or a `<PackageReference>`. This step is required to have the aspect registered under the refactoring menu. You can remove the reference after the operation if needed.
    
    > [!NOTE]
    > If you only use live templates from this project, consider using the `PrivateAssets="all"` option, so the reference does not flow to the consumers of your project.
 
-2. Position the caret on the name of the declaration to which you want to apply the aspect. 
-3. Click on the lightbulb or refactoring icon, and choose Apply live template_.
-    > TODO: Redo screenshots.
+## Step 2. Apply the live template
 
+1. Position the caret on the name of the declaration to which you want to apply the aspect. 
+2. Click on the lightbulb or refactoring icon, and choose Apply live template_.
     ![Screenshot](LiveTemplate1.png)
 
-4. Select the aspect that you want to apply
+3. Select the aspect that you want to apply
     ![Screenshot](LiveTemplate2.png)
 
