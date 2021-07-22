@@ -1,4 +1,4 @@
-name: Build
+name: Test Examples
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: ./docfx
+        working-directory: ./code
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -20,7 +20,4 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Build
-      shell: pwsh
-      run: |
-        ./build.ps1 -NoKill
-        if (!$?) {Throw "The script has failed." }
+      run: dotnet test
