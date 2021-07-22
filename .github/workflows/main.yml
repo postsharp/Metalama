@@ -10,7 +10,9 @@ jobs:
   build:
 
     runs-on: windows-latest
-
+    defaults:
+      run:
+        working-directory: ./docfx
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
