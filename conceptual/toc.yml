@@ -57,5 +57,6 @@ items:
         topicUid: debugging
   - name: Using Live Templates
     topicUid: applying-live-templates
-
+  - name: Packages and Components
+    topicUid: packages
  

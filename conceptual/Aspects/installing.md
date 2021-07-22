@@ -14,6 +14,7 @@ Before you start developing aspects, you must add the `Caravela.Framework` packa
 </ItemGroup>    
 ```
 
+For details of all NuGet packages and their dependencies, see <xref:packages>.
 
 >[!NOTE]
 >Caravela requires a platform that supports .NET Standard 2.0.

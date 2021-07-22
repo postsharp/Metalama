@@ -22,7 +22,7 @@ Concretely, you can follow the following steps (detailed below):
 ## Step 1. Create an aspect test project with Caravela.TestFramework
 
 1. Create a Xunit test project.
-2. Add the `Caravela.TestFramwework` package.
+2. Add the `Caravela.TestFramework` package (see <xref:packages> for details).
 
 > [!WARNING]
 > Do not add the `Caravela.TestFramework` to a project that you do not intend to use _exclusively_ for compile-time tests. This packages significantly changes the semantics of the project items.
