@@ -6,14 +6,15 @@
 
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Documentation and Examples](#documentation-and-examples)
-- [Licensing](#licensing)
-- [We would love your feedback](#we-would-love-your-feedback)
-- [How does PostSharp "Caravela" compare to Roslyn source generators?](#how-does-postsharp-caravela-compare-to-roslyn-source-generators)
-- [How does PostSharp "Caravela" compare to PostSharp MSIL?](#how-does-postsharp-caravela-compare-to-postsharp-msil)
-- [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
+- [PostSharp "Caravela"](#postsharp-caravela)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Documentation and Examples](#documentation-and-examples)
+  - [Licensing](#licensing)
+  - [We would love your feedback](#we-would-love-your-feedback)
+  - [How does PostSharp "Caravela" compare to Roslyn source generators?](#how-does-postsharp-caravela-compare-to-roslyn-source-generators)
+  - [How does PostSharp "Caravela" compare to PostSharp MSIL?](#how-does-postsharp-caravela-compare-to-postsharp-msil)
+  - [Compatibility with PostSharp MSIL](#compatibility-with-postsharp-msil)
 
 ## Introduction
 
@@ -35,7 +36,7 @@ PostSharp "Caravela" is intended to replace the MSIL-based stack that is now the
 
 Examples and code snippets are open-source and tested: 
 
-[![Documentation Snippets](https://github.com/postsharp/Caravela/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Caravela/actions/workflows/main.yml) [![Caravela.Samples](https://github.com/postsharp/Caravela.Samples/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Caravela.Samples/actions/workflows/main.yml)
+[![Documentation Snippets](https://github.com/postsharp/Caravela.Documentation/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Caravela.Documentation/actions/workflows/main.yml) [![Caravela.Samples](https://github.com/postsharp/Caravela.Samples/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Caravela.Samples/actions/workflows/main.yml)
 
 
 ## Licensing
