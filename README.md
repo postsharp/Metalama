@@ -27,13 +27,16 @@ PostSharp "Caravela" is intended to replace the MSIL-based stack that is now the
 
 | Link                                                              | Description |
 |-------------------------------------------------------------------|------------------------
-| [Documentation](https://doc.postsharp.net) | Conceptual and API documentation
+| [Documentation](https://doc.postsharp.net) | Conceptual and API documentation.
 | [Try Caravela](https://try.postsharp.net) | Try Caravela from your browser. Based on https://try.dot.net/ |
 | [Caravela.Samples](https://github.com/postsharp/Caravela.Samples) | A dozen of examples in a GitHub repo. |
 |[Caravela.Open.AutoCancellationToken](https://github.com/postsharp/Caravela.Open.AutoCancellationToken) | A low-level Caravela aspect that adds cancellation tokens to your method declarations and your method calls.
 | [Caravela.Open.Virtuosity](https://github.com/postsharp/Caravela.Open.Virtuosity) | A low-level Caravela aspect that makes your methods virtual (a fork of Virtuosity.Fody).
 
-All examples are open source.
+Examples and code snippets are open-source and tested: 
+
+[![Documentation Snippets](https://github.com/postsharp/Caravela/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Caravela/actions/workflows/main.yml) [![Caravela.Samples](https://github.com/postsharp/Caravela.Samples/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Caravela.Samples/actions/workflows/main.yml)
+
 
 ## Licensing
 
