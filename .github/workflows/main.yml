@@ -20,4 +20,4 @@ jobs:
     - name: Build
       shell: pwsh
       run: |
-        ./docfx/build.ps1
+        ./docfx/build.ps1 -NoKill

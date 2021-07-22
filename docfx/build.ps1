@@ -1,17 +1,19 @@
-param ( [switch] $incremental = $false, [switch] $pack = $false )
+param ( [switch] $incremental = $false, [switch] $pack = $false, [switch] $NoKill = $false )
 
 $ErrorActionPreference = "Stop" 
 
 function RemoveLockedFiles()
 {
-    gcim win32_process | where { $_.Name -eq "iisexpress.exe" } | foreach { 
-        Stop-Process -ID $_.ProcessId 
-        Start-Sleep  -Seconds 1
-    }
+    if ( -not $NoKill ) {
+        gcim win32_process | where { $_.Name -eq "iisexpress.exe" } | foreach { 
+            Stop-Process -ID $_.ProcessId 
+            Start-Sleep  -Seconds 1
+        }
 
-    # Delete the output soon because it may be locked.
-    if ( test-path "output\Caravela.Doc.zip") {
-       del "output\Caravela.Doc.zip"
+        # Delete the output soon because it may be locked.
+        if ( test-path "output\Caravela.Doc.zip") {
+        del "output\Caravela.Doc.zip"
+        }
     }
 
 }
