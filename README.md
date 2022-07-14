@@ -1,6 +1,6 @@
 # Metalama
 
-[![Gitter](https://badges.gitter.im/postsharp/caravela.svg)](https://gitter.im/postsharp/caravela?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us%20on&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack)
 
 > You can try Metalama in your browser, without installing anything, at <https://try.metalama.net/>.
 
