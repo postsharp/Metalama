@@ -35,7 +35,9 @@ Metalama is intended to replace the MSIL-based stack that is now the foundation 
 | [Metalama.Samples](https://github.com/postsharp/Metalama.Samples) | A dozen of examples in a GitHub repo. |
 | [Metalama.Open.AutoCancellationToken](https://github.com/postsharp/Metalama.Open.AutoCancellationToken) | A low-level Metalama aspect that adds cancellation tokens to your method declarations and your method calls.
 | [Metalama.Open.Virtuosity](https://github.com/postsharp/Metalama.Open.Virtuosity) | A low-level Metalama aspect that makes your methods virtual. (A fork of Virtuosity.Fody.)
-| [Metalama.Open.DependencyEmbedder](https://github.com/postsharp/Metalama.Open.DependencyEmbedder) | A low-level Metalama aspect that embeds dependent assemblies as managed resources. (A fork of Costura.Fody.)
+| [Metalama.Open.Costura](https://github.com/postsharp/Metalama.Open.Costura) | A low-level Metalama aspect that embeds dependent assemblies as managed resources. (A fork of Costura.Fody.)
+| [Metalama.Framework.Extensions](https://github.com/postsharp/Metalama.Framework.Extensions) | Open-source extensions to Metalama.Framework.
+
 
 Examples and code snippets are open-source and tested: 
 
