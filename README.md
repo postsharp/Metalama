@@ -39,16 +39,11 @@ Metalama is intended to replace the MSIL-based stack that is now the foundation 
 | [Metalama.Framework.Extensions](https://github.com/postsharp/Metalama.Framework.Extensions) | Open-source extensions to Metalama.Framework.
 
 
-Examples and code snippets are open-source and tested: 
-
-[![Documentation Snippets](https://github.com/postsharp/Metalama.Documentation/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Metalama.Documentation/actions/workflows/main.yml) [![Metalama.Samples](https://github.com/postsharp/Metalama.Samples/actions/workflows/main.yml/badge.svg)](https://github.com/postsharp/Metalama.Samples/actions/workflows/main.yml)
-
-
 ## Licensing
 
 Metalama is currently released under the terms of the Evaluation License of PostSharp.
 
-> Metalama is currently in EARLY PREVIEW stage and is not intended for commercial use.
+> Metalama is currently in Release Candidate stage and is not intended for commercial use.
 > Any version of the Metalama preview will stop working 90 days after it has been built.
 > To continue using it, you will need to update to a newer preview.
 
