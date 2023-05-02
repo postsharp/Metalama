@@ -1,12 +1,12 @@
 # Metalama
 
-[![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us%20on&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack)
-
 ![Metalama Logo](images/metalama-by-postsharp.svg)
 
 This repo is the home of Metalama, a modern Roslyn-based meta-programming framework to improve your code quality and productivity in C#. We use this repo for [discussions](https://github.com/postsharp/Metalama/discussions) and [bug reports](https://github.com/postsharp/Metalama/issues).
 
 If you're new to Metalama, it's best to start with the [Metalama website](https://www.postsharp.net/metalama) or [documentation](https://doc.metalama.net/).
+
+[![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us%20on&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack)
 
 
 ## What is Metalama?
@@ -65,7 +65,7 @@ For a list of features, see https://www.postsharp.net/metalama.
 
 ## Repositories
 
-Except the core implementation of Metalama, many components are open source:
+Except for the core implementation of Metalama, many components are open source:
 
 
 | Link                                                              | Description |
@@ -74,3 +74,6 @@ Except the core implementation of Metalama, many components are open source:
 | [Metalama.Samples](https://github.com/postsharp/Metalama.Samples) | Several examples of increasing complexity. Best viewed online at https://doc.metalama.net/examples.
 | [Metalama.Extensions](https://github.com/postsharp/Metalama.Extensions) | Fully supported and documented extensions to Metalama. 
 | [Metalama.Community](https://github.com/postsharp/Metalama.Community) | A collection of aspects owned by the community.
+| [Metalama.LinqPad](https://github.com/postsharp/Metalama.LinqPad) | A LinqPad driver that allows you to open and query any C# project or solution. 
+| [PostSharp.Engineering](https://github.com/postsharp/PostSharp.Engineering) | Our continous build and integration toolset.
+| [Metalama.Migration](https://github.com/postsharp/Metalama.Migration) | A documentation of the PostSharp API with instructions to migrate to Metalama.
