@@ -23,11 +23,11 @@
       }
 
       @media (prefers-color-scheme: dark) {
-        .cls-4 {
+        .cls-6 {
           fill: #fff;
         }
 
-        .cls-5, .cls-6 {
+        .cls-5, .cls-4 {
           fill: #a0a0a0;
         }
 
