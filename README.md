@@ -6,7 +6,7 @@ This repo is the home of Metalama, a modern Roslyn-based meta-programming framew
 
 If you're new to Metalama, it's best to start with the [Metalama website](https://www.postsharp.net/metalama) or [documentation](https://doc.metalama.net/).
 
-[![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us%20on&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack)
+[![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us%20on&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack) ![Discord](https://img.shields.io/discord/1108042639565127740)
 
 
 ## What is Metalama?
