@@ -1,9 +1,9 @@
-# Metalama
+<p align="center">
+<img width="450" src="images/metalama-by-postsharp.svg" alt="Metalama logo" />
+</p>
 
 [![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack) 
 [![Discord](https://img.shields.io/badge/Discord-4A154B?label=Chat%20with%20us&style=flat&logo=discord&logoColor=white)](https://www.postsharp.net/discord)
-
-![Metalama Logo](images/metalama-by-postsharp.svg)
 
 Welcome to Metalama, a cutting-edge Roslyn-based meta-programming framework designed to enhance your code quality and productivity in C#. Metalama stands on three foundational principles:
 
@@ -63,9 +63,9 @@ Metalama.Extensions --> Metalama.Samples
 Metalama.Extensions --> Metalama.Patterns
 Metalama.Framework --> Metalama.LinqPad
 Metalama.Framework --> Metalama.Community
- Metalama.Migration --> Metalama.Documentation
- Metalama.Samples --> Metalama.Documentation
- Metalama.Patterns --> Metalama.Documentation
+Metalama.Migration --> Metalama.Documentation
+Metalama.Samples --> Metalama.Documentation
+Metalama.Patterns --> Metalama.Documentation
 
 
 
