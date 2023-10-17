@@ -49,24 +49,24 @@ It's in the vibrant streets of Prague, Czechia, that an insurrection against boi
 
 ### The Core Team
 
-- **[Gael Fraiteur](@gfraiteur)**: The Captain of our ship, Lead Architect, and beloved Chief Mad Scientist.
-- **[Antonin Prochazka](@prochan2)**: Senior Software Developer, DevOps Maestro, and the guy who often talks to machines (and they listen).
-- **[Daniel Balas](@addabis)**: Senior Software Developer and our in-house "Thread Whisperer". Rumor has it he can split threads finer than hair!
-- **[Petr Onderka](@svick)**: Senior Software Developer and Compiler Maniac, often found in deep conversations with compilers late into the night.
-- **[Zuzana Hybsova](@Zu-Hy)**: Our anchor, the Back-Office Manager. The only one who ensures our creative chaos remains just the right side of insane.
+- **[Gael Fraiteur](https://github.com/gfraiteur)**: The Captain of our ship, Lead Architect, and beloved Chief Mad Scientist.
+- **[Antonin Prochazka](https://github.com/prochan2)**: Senior Software Developer, DevOps Maestro, and the guy who often talks to machines (and they listen).
+- **[Daniel Balas](https://github.com/addabis)**: Senior Software Developer and our in-house "Thread Whisperer". Rumor has it he can split threads finer than hair!
+- **[Petr Onderka](https://github.com/svick)**: Senior Software Developer and Compiler Maniac, often found in deep conversations with compilers late into the night.
+- **[Zuzana Hybsova](https://github.com/Zu-Hy)**: Our anchor, the Back-Office Manager. The only one who ensures our creative chaos remains just the right side of insane.
 
 ### The Passionate Collaborators
 
-- **[Alex Dolin](@aleksd)**: Dived head-first into Metalama's proof-of-concept phase in 2020 when the project was still named Caravela.
-- **[Tom Glastonbury](@tg73)**: The passionate soul behind the inception of `Metalama.Patterns` in 2023. Some say he dreams in patterns.
+- **[Alex Dolin](https://github.com/aleksd)**: Dived head-first into Metalama's proof-of-concept phase in 2020 when the project was still named Caravela.
+- **[Tom Glastonbury](https://github.com/tg73)**: The passionate soul behind the inception of `Metalama.Patterns` in 2023. Some say he dreams in patterns.
 
 ### Our Enthusiast VIPs
 
 We extend our deepest gratitude to the following champions for their countless suggestions, invaluable feedback, and diligent bug reports that have immensely contributed to our community:
 
-- @WhitWaldo
-- @domsinclair
-- @XtroTheArctic
+- [Whit Waldo](https://github.com/WhitWaldo)
+- [Dom Sinclair](https://github.com/domsinclair)
+- [Onur Er](https://github.com/XtroTheArctic)
 - Marc K
 
 Their dedication and insights have been pivotal in shaping Metalama to its finest.
