@@ -44,6 +44,31 @@ This repository serves as a hub for Metalama. The codebase is distributed across
 | [Metalama.Samples](https://github.com/postsharp/Metalama.Samples)              | MIT              | A collection of illustrative samples available at [Metalama Examples](https://doc.metalama.net/examples).                                        |
 
 
+## Dependencies
+
+Here is a graph of the dependencies between these repos:
+
+```mermaid
+
+flowchart LR
+    
+Metalama.Backstage --> Metalama.Framework
+Metalama.Framework.RunTime --> Metalama.Framework
+Metalama.Compiler --> Metalama.Framework
+Metalama.Framework --> Metalama.Extensions
+Metalama.Extensions --> Metalama.Migration
+Metalama.Extensions --> Metalama.Samples
+Metalama.Extensions --> Metalama.Patterns
+Metalama.Framework --> Metalama.LinqPad
+Metalama.Framework --> Metalama.Community
+ Metalama.Migration --> Metalama.Documentation
+ Metalama.Samples --> Metalama.Documentation
+ Metalama.Patterns --> Metalama.Documentation
+
+
+
+```
+
 ## The Dream Weavers of Metalama
 
 It's in the vibrant streets of Prague, Czechia, that an insurrection against boilerplate rose in 2004. Back in the days when the C# compiler was an obscure, closed-source monolith, inaccessible for extensibility, PostSharp became the first successful implementation of aspect-oriented in .NET. Fifteen years later, when Microsoft released .NET 5 and added source generators to Roslyn, we knew it was time for a complete rewrite based on new .NET stack. This project, originally codenamed "Caravela", became Metalama, and its first stable version was released in May 2023. 
