@@ -54,6 +54,7 @@ Here is a graph of the dependencies between these repos:
 flowchart LR
     
 Metalama.Backstage --> Metalama.Framework
+Metalama.Framework.Private --> Metalama.Framework
 Metalama.Framework.RunTime --> Metalama.Framework
 Metalama.Compiler --> Metalama.Framework
 Metalama.Framework --> Metalama.Extensions
