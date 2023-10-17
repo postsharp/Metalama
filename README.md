@@ -5,7 +5,7 @@
 [![Slack](https://img.shields.io/badge/Slack-4A154B?label=Chat%20with%20us&style=flat&logo=slack&logoColor=white)](https://www.postsharp.net/slack) 
 [![Discord](https://img.shields.io/badge/Discord-4A154B?label=Chat%20with%20us&style=flat&logo=discord&logoColor=white)](https://www.postsharp.net/discord)
 
-Welcome to Metalama, a cutting-edge Roslyn-based meta-programming framework designed to enhance your code quality and productivity in C#. Metalama stands on three foundational principles:
+Welcome to Metalama, a Roslyn-based meta-programming framework designed to enhance your code quality and productivity in C#. Metalama stands on three foundational principles:
 
 * *Boilerplate Reduction*: Harness the power of aspect-oriented programming to dynamically generate repetitive code during compilation. This ensures your source code stays concise and clear.
 * *Architecture as Code*: Receive real-time validation of your code against your architectural guidelines, patterns, and conventions. Say goodbye to waiting for code reviews.
