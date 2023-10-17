@@ -67,6 +67,6 @@ We extend our deepest gratitude to the following champions for their countless s
 - [Whit Waldo](https://github.com/WhitWaldo)
 - [Dom Sinclair](https://github.com/domsinclair)
 - [Onur Er](https://github.com/XtroTheArctic)
-- Marc K
+- [Marc Kruse](https://github.com/mkruse)
 
 Their dedication and insights have been pivotal in shaping Metalama to its finest.
