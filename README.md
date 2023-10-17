@@ -45,7 +45,7 @@ This repository serves as a hub for Metalama. The codebase is distributed across
 
 ## The Dream Weavers of Metalama
 
-It's in the vibrant streets of Prague, Czechia, that an insurrection against boilerplate took rose in 2004. Back in the days when the C# compiler was an obscure, closed-source monolith, inaccessible for extensibility, our first product PostSharp became the first successful implementation of aspect-oriented in .NET. Fifteen years later, when Microsoft released .NET 5 and added source generators to Roslyn, we knew it was time for a complete rewrite based on new .NET stack. This project, originally codenamed "Caravela", became Metalama. 
+It's in the vibrant streets of Prague, Czechia, that an insurrection against boilerplate rose in 2004. Back in the days when the C# compiler was an obscure, closed-source monolith, inaccessible for extensibility, our first product PostSharp became the first successful implementation of aspect-oriented in .NET. Fifteen years later, when Microsoft released .NET 5 and added source generators to Roslyn, we knew it was time for a complete rewrite based on new .NET stack. This project, originally codenamed "Caravela", became Metalama. 
 
 ### The Core Team
 
