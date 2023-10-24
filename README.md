@@ -105,6 +105,7 @@ gitGraph:
     branch topic/2023.4/1235-bug-2  order:2
     checkout topic/2023.4/1235-bug-2
     commit
+    commit
     checkout develop/2023.4
     merge topic/2023.4/1235-bug-2 tag:"release/2023.4.1-preview" type:HIGHLIGHT
     checkout release/2023.4
@@ -117,6 +118,7 @@ gitGraph:
     merge topic/2023.4/1236-bug-3
     branch topic/2023.4/1237-bug-4 order:4
     checkout topic/2023.4/1237-bug-4
+    commit
     commit
     checkout develop/2023.4
     merge topic/2023.4/1237-bug-4 tag:"release/2023.4.2-preview" type:HIGHLIGHT
