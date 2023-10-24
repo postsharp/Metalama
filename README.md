@@ -71,8 +71,55 @@ Metalama.Migration --> Metalama.Documentation
 Metalama.Samples --> Metalama.Documentation
 Metalama.Patterns --> Metalama.Documentation
 
+```
 
+## Our Git flow
 
+* We don't use the `master` nor the `main` branch.
+* We are generally concurrently working on three versions, numbered `YYYY.N`. Typically, one is stable and maintained, the other is `rc` and the third is `preview`.
+* You should generally check out the `release/YYYY.N` branch.
+* Our continuous integration branches are `develop/YYYY.N`. They generally depend on unpublished build artifacts of dependencies and therefore _cannot_ be easily built by the public except by building the dependencies locally. Our `develop/YYYY.N` builds can occasionally be broken.
+* When we publish artifacts (for instance to `nuget.org`):
+  - We update the version of package references to the ones just uploaded to `nuget.org`.
+  - We mark the released commit with the precise package version, e.g. `/release/2023.4.1-preview`.
+  - We merge the `develop/YYYY.N` branch into `release/YYYY.N`.
+* We work on branches named `topic/YYYY.N/whatever` and generally do PRs to `develop/YYYY.N`.
+* After any merge to an "old" `develop/YYYY.N`, the "old" `develop/YYYY.N` is automatically merged into the newer `develop/YYYY.N+1`. A merge commit, named `merge/YYYY.N+1/commit-123456` is automatically created, tested, if possible merged, then deleted.
+
+```mermaid
+%%{init: { 'gitGraph': { 'mainBranchName':'develop/2023.4', 'mainBranchOrder': 1 }} }%%
+
+gitGraph:
+    commit
+    branch release/2023.4 order:0
+    branch topic/2023.4/1234-bug-1 order:1
+    checkout topic/2023.4/1234-bug-1
+    commit
+    commit
+    checkout develop/2023.4
+    merge topic/2023.4/1234-bug-1
+    branch topic/2023.4/1235-bug-2  order:2
+    checkout topic/2023.4/1235-bug-2
+    commit
+    checkout develop/2023.4
+    merge topic/2023.4/1235-bug-2 tag:"release/2023.4.1-preview" type:HIGHLIGHT
+    checkout release/2023.4
+    merge develop/2023.4
+    branch topic/2023.4/1236-bug-3 order:3
+    checkout topic/2023.4/1236-bug-3
+    commit
+    commit
+    checkout develop/2023.4
+    merge topic/2023.4/1236-bug-3
+    branch topic/2023.4/1237-bug-4 order:4
+    checkout topic/2023.4/1237-bug-4
+    commit
+    checkout develop/2023.4
+    merge topic/2023.4/1237-bug-4 tag:"release/2023.4.2-preview" type:HIGHLIGHT
+    checkout release/2023.4
+    merge develop/2023.4
+    
+commit
 ```
 
 ## The Dream Weavers of Metalama
