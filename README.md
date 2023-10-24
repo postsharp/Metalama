@@ -85,6 +85,11 @@ Metalama.Patterns --> Metalama.Documentation
   - We merge the `develop/YYYY.N` branch into `release/YYYY.N`.
 * We work on branches named `topic/YYYY.N/whatever` and generally do PRs to `develop/YYYY.N`.
 * After any merge to an "old" `develop/YYYY.N`, the "old" `develop/YYYY.N` is automatically merged into the newer `develop/YYYY.N+1`. A merge commit, named `merge/YYYY.N+1/commit-123456` is automatically created, tested, if possible merged, then deleted.
+* We use a private TeamCity service for our continuous integration.
+
+### Illustration
+
+The following schema illustrates our workflow. It shows two public builds, `2023.4.1-preview` and `2023.4.2-preview`, each including two bug fixes.
 
 ```mermaid
 %%{init: { 'gitGraph': { 'mainBranchName':'develop/2023.4', 'mainBranchOrder': 1 }} }%%
