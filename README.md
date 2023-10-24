@@ -91,7 +91,7 @@ Metalama.Patterns --> Metalama.Documentation
 The following schema illustrates our workflow. It shows two public builds, `2023.4.1-preview` and `2023.4.2-preview`, each including two bug fixes.
 
 ```mermaid
-%%{init: { 'gitGraph': { 'mainBranchName':'develop/2023.4', 'mainBranchOrder': 1 }} }%%
+%%{init: { 'gitGraph': { 'mainBranchName':'develop/2023.4', 'mainBranchOrder': 1, 'showCommitLabel': false }} }%%
 
 gitGraph:
     commit
