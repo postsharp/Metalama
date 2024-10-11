@@ -87,6 +87,8 @@ Metalama.Patterns --> Metalama.Documentation
 
 The following schema illustrates our workflow. It shows two public builds, `2023.4.1-preview` and `2023.4.2-preview`, each including two bug fixes.
 
+[//]: # (The "commit" before the first "merge develop/2023.4" is a workaround for https://github.com/mermaid-js/mermaid/issues/5898 and should be removed when fixed.)
+
 ```mermaid
 %%{init: { 'gitGraph': { 'mainBranchName':'develop/2023.4', 'mainBranchOrder': 1, 'showCommitLabel': false }} }%%
 
@@ -106,6 +108,7 @@ gitGraph:
     checkout develop/2023.4
     merge topic/2023.4/1235-bug-2 tag:"release/2023.4.1-preview" type:HIGHLIGHT
     checkout release/2023.4
+    commit 
     merge develop/2023.4
     branch topic/2023.4/1236-bug-3 order:3
     checkout topic/2023.4/1236-bug-3
